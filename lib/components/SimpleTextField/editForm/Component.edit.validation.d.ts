@@ -5,6 +5,7 @@ declare const _default: ({
     tooltip: string;
     key: string;
     input: boolean;
+    defaultValue: boolean;
     placeholder?: undefined;
 } | {
     weight: number;
@@ -14,5 +15,6 @@ declare const _default: ({
     type: string;
     tooltip: string;
     input: boolean;
+    defaultValue?: undefined;
 })[];
 export default _default;
