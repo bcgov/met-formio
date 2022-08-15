@@ -5,23 +5,14 @@ declare const _default: ({
     tooltip: string;
     key: string;
     input: boolean;
-    defaultValue: boolean;
     placeholder?: undefined;
 } | {
-    weight: number;
-    key: string;
+    type: string;
     label: string;
+    key: string;
+    weight: number;
     placeholder: string;
-    type: string;
     tooltip: string;
     input: boolean;
-    defaultValue?: undefined;
-} | {
-    type: string;
-    input: boolean;
-    key: string;
-    label: string;
-    tooltip: string;
-    weight: number;
 })[];
 export default _default;
