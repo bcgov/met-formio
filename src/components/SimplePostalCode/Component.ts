@@ -1,6 +1,6 @@
 /* tslint:disable */
 import { Components } from 'formiojs';
-const ParentComponent = (Components as any).components.phoneNumber;
+const ParentComponent = (Components as any).components.textfield;
 import editForm from './Component.form';
 
 import { Constants } from '../Common/Constants';
