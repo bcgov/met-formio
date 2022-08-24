@@ -1,6 +1,6 @@
 {
   "name": "met-formio",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "React Formio Components for the Modern Engagement Tools project.",
   "license": "Apache-2.0",
