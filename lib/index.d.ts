@@ -7,6 +7,7 @@ declare const _default: {
         header: typeof import("./components/Header/Component").default;
         paragraph: typeof import("./components/Paragraph/Component").default;
         simplepostalcode: typeof import("./components/SimplePostalCode/Component").default;
+        checkboxesvc: typeof import("./components/CheckBoxesVC/Component").default;
     };
     templates: {
         bootstrap: {
