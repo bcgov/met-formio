@@ -50,14 +50,25 @@ export default class Component extends (ParentComponent as any) {
         if (this.component.values.length > 1) {
             return;
         }
-        const url = `${localStorage.getItem('apiurl')}`;
-        const resp = await Formio.request(`${url}/valuecomponents/`, 'GET', null, null, {
-            headers: {
-                'content-type': 'application/json',
-            },
-            mode: 'cors',
-        });
-        this.loadVcs(resp.result);
+        try {
+          this.loading = true;
+          const url = `${localStorage.getItem("apiurl")}`;
+          const resp = await Formio.request(
+            `${url}/valuecomponents/`,
+            "GET",
+            null,
+            null,
+            {
+              headers: {
+                "content-type": "application/json",
+              },
+              mode: "cors",
+            }
+          );
+          this.loadVcs(resp.result);
+        } catch (err) {
+          this.handleLoadingError(err);
+        }
     }
 
     loadVcs(vcs) {
@@ -74,6 +85,7 @@ export default class Component extends (ParentComponent as any) {
 
     handleLoadingError(err) {
         this.loading = false;
+        this.error = true;
         if (err.networkError) {
             this.networkError = true;
         }
