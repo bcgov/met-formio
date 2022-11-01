@@ -1,5 +1,5 @@
 /* tslint:disable */
-import { Components } from 'formiojs';
+import { Components, Formio } from 'formiojs';
 const ParentComponent = (Components as any).components.selectboxes;
 import editForm from './Component.form';
 
@@ -18,12 +18,6 @@ export default class Component extends (ParentComponent as any) {
                 inline: false,
                 values: [{ label: 'Virtual Components', value: 'vcs' }],
                 fieldSet: false,
-                customDefaultValue:
-                    '  const populateSelectBoxes = (vcs) => {\n    component.values = vcs.map((vc) =>' +
-                    ' {\n      return {\n        label: vc.title,\n        value: vc.id,\n        icon: vc.icon,\n      };\n' +
-                    '    });\n  };\n\n  const apiurl = localStorage.getItem("apiurl");\n  Formio.request(`${apiurl}/valuecomponents/`' +
-                    ', "GET", null, null, {\n    headers: {\n      "content-type": "application/json",\n    },\n    mode: "cors",\n' +
-                    '  }).then(function (result) {\n    console.log(result)\n    populateSelectBoxes(JSON.parse(result));\n  });',
             },
             ...extend,
         );
@@ -40,5 +34,53 @@ export default class Component extends (ParentComponent as any) {
             documentation: Constants.DEFAULT_HELP_LINK,
             schema: Component.schema(),
         };
+    }
+
+    constructor(component, options, data) {
+        super(component, options, data);
+        this.previousValue = this.dataValue || null;
+    }
+
+    init() {
+        super.init();
+        this.fetchVcs();
+    }
+
+    async fetchVcs() {
+        if (this.component.values.length > 1) {
+            return;
+        }
+        const url = `${localStorage.getItem('apiurl')}`;
+        const resp = await Formio.request(`${url}/valuecomponents/`, 'GET', null, null, {
+            headers: {
+                'content-type': 'application/json',
+            },
+            mode: 'cors',
+        });
+        this.loadVcs(resp.result);
+    }
+
+    loadVcs(vcs) {
+        const valueComponents = vcs.map((vc) => {
+            return {
+                label: vc.title,
+                value: vc.id,
+                icon: vc.icon,
+            };
+        });
+        this.component.values = [...valueComponents];
+        this.redraw();
+    }
+
+    handleLoadingError(err) {
+        this.loading = false;
+        if (err.networkError) {
+            this.networkError = true;
+        }
+        this.emit('componentError', {
+            component: this.component,
+            message: err.toString(),
+        });
+        console.warn(`Unable to load resources for ${this.key}`);
     }
 }

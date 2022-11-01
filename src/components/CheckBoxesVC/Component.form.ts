@@ -1,5 +1,4 @@
 import radioEditForm from 'formiojs/components/radio/Radio.form';
-import EditData from './editForm/Component.edit.data';
 import EditDisplay from './editForm/Component.edit.display';
 import EditValidation from './editForm/Component.edit.validation';
 import SimpleConditional from '../Common/Simple.edit.conditional';
@@ -23,16 +22,6 @@ export default function (...extend) {
             {
                 key: 'validation',
                 ignore: true,
-            },
-            {
-                key: 'logic',
-                ignore: true,
-            },
-            {
-                label: 'Data',
-                key: 'customData',
-                weight: 10,
-                components: EditData,
             },
             {
                 label: 'Validation',
