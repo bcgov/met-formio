@@ -36,11 +36,6 @@ export default class Component extends (ParentComponent as any) {
         };
     }
 
-    constructor(component, options, data) {
-        super(component, options, data);
-        this.previousValue = this.dataValue || null;
-    }
-
     init() {
         super.init();
         this.fetchVcs();
