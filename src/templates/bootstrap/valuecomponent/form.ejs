@@ -1,0 +1,52 @@
+<div
+  class="form-radio radio"
+  ref="radioGroup"
+  role="group"
+  aria-required="{{ctx.input.component.validate.required}}"
+  aria-labelledby="l-{{ctx.instance.id}}-{{ctx.component.key}}"
+  {% if (ctx.component.description) { %}
+    aria-describedby="d-{{ctx.instance.id}}-{{ctx.component.key}}"
+  {% } %}
+>
+  <div class="container p-0 m-1">
+    <div class="row">
+      {% ctx.values.forEach(function(item) { %}
+        {% var isChecked = ctx.value && (ctx.value === item.value || (typeof ctx.value === 'object' && ctx.value.hasOwnProperty(item.value) && ctx.value[item.value])) %}
+            <div class="col-4">
+              <div class="container card {{ isChecked ? 'card-checked-red' : '' }} p-1">
+                <div class="row align-items-center justify-content-start">
+                  <div class="col-10">
+                    <div class="container">
+                      <div class="row align-items-center justify-content-start">
+                        <span class="fa-stack icon-stack">
+                          <i class="fas fa-circle fa-stack-2x circle-icon-red"></i>
+                          <i class="far fa-clock fa-stack-1x"></i>
+                        </span>
+                        <span class="ml-1">{{item.label}}</span>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <input
+                      type="checkbox"
+                      ref="input"
+                      value="{{item.value}}"
+                      {% if (isChecked) { %}
+                        checked=true
+                      {% } %}
+                      {% if (item.disabled) { %}
+                        disabled=true
+                      {% } %}
+                      id="{{ctx.instance.root && ctx.instance.root.id}}-{{ctx.id}}-{{ctx.row}}-{{item.value}}"
+                      role="checkbox"
+                      class="vc-checked"
+                    >              
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% }) %}
+    </div>
+  </div>
+</div>

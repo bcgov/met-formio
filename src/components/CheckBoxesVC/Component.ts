@@ -1,6 +1,7 @@
 /* tslint:disable */
 import { Components, Formio } from 'formiojs';
 const ParentComponent = (Components as any).components.selectboxes;
+const FieldComponent = (Components as any).components.field;
 import editForm from './Component.form';
 
 import { Constants } from '../Common/Constants';
@@ -46,23 +47,17 @@ export default class Component extends (ParentComponent as any) {
             return;
         }
         try {
-          this.loading = true;
-          const url = `${localStorage.getItem("apiurl")}`;
-          const resp = await Formio.request(
-            `${url}/valuecomponents/`,
-            "GET",
-            null,
-            null,
-            {
-              headers: {
-                "content-type": "application/json",
-              },
-              mode: "cors",
-            }
-          );
-          this.loadVcs(resp.result);
+            this.loading = true;
+            const url = `${localStorage.getItem('apiurl')}`;
+            const resp = await Formio.request(`${url}/valuecomponents/`, 'GET', null, null, {
+                headers: {
+                    'content-type': 'application/json',
+                },
+                mode: 'cors',
+            });
+            this.loadVcs(resp.result);
         } catch (err) {
-          this.handleLoadingError(err);
+            this.handleLoadingError(err);
         }
     }
 
@@ -89,5 +84,27 @@ export default class Component extends (ParentComponent as any) {
             message: err.toString(),
         });
         console.warn(`Unable to load resources for ${this.key}`);
+    }
+
+    get grandparentRender() {
+        return FieldComponent.prototype.render;
+    }
+
+    render() {
+        return this.grandparentRender(
+            this.renderTemplate('valuecomponent', {
+                input: this.inputInfo,
+                inline: this.component.inline,
+                values: this.component.values,
+                value: this.dataValue,
+                row: this.row,
+            }),
+        );
+    }
+
+    updateValue(value, flags) {
+        const changed = super.updateValue(value, flags);
+        this.redraw();
+        return changed;
     }
 }
