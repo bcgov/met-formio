@@ -11,5 +11,12 @@ export default class Component extends Component_base {
         documentation: string;
         schema: any;
     };
+    init(): void;
+    fetchVcs(): Promise<void>;
+    loadVcs(vcs: any): void;
+    handleLoadingError(err: any): void;
+    get grandparentRender(): any;
+    render(): any;
+    updateValue(value: any, flags: any): any;
 }
 export {};

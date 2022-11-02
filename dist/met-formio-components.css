@@ -1,0 +1,30 @@
+.card {
+  border-radius: 12px;
+  border: 2px solid #D0CCCC; }
+
+.card-checked-red {
+  background: #F15A2C1A !important;
+  border: 2px solid #F15A2C !important; }
+
+.circle-icon-red {
+  color: #F8A692; }
+
+.card-checked-yellow {
+  background: #FCB92F1A !important;
+  border: 2px solid #FCB92F !important; }
+
+.circle-icon-yellow {
+  color: #FCB92F; }
+
+.card-checked-blue {
+  background: #A1DDF333 !important;
+  border: 2px solid #A1DDF3 !important; }
+
+.circle-icon-blue {
+  color: #A1DDF3; }
+
+.icon-stack {
+  font-size: 1.2em; }
+
+.vc-check {
+  position: relative; }
