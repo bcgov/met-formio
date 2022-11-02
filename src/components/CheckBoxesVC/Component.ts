@@ -67,6 +67,7 @@ export default class Component extends (ParentComponent as any) {
                 label: vc.title,
                 value: vc.id,
                 icon: vc.icon,
+                category: vc.category,
             };
         });
         this.component.values = [...valueComponents];
@@ -91,6 +92,9 @@ export default class Component extends (ParentComponent as any) {
     }
 
     render() {
+        // super.render calls render of parent which is Radio which will use radio template
+        // we want to skip that and use the render function of radio's parent which is Field
+        // so valuecomponent template won't be overridden by radio template
         return this.grandparentRender(
             this.renderTemplate('valuecomponent', {
                 input: this.inputInfo,
