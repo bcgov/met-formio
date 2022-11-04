@@ -5,6 +5,8 @@ import simplecheckboxes from './SimpleCheckboxes/Component';
 import simplepostalcode from "./SimplePostalCode/Component";
 import header from "./Header/Component";
 import paragraph from "./Paragraph/Component";
+import checkboxesvc from "./CheckBoxesVC/Component";
+import textareavc from "./TextAreaVC/Component";
 declare const _default: {
     simpletextfield: typeof simpletextfield;
     simpletextarea: typeof simpletextarea;
@@ -13,5 +15,7 @@ declare const _default: {
     header: typeof header;
     paragraph: typeof paragraph;
     simplepostalcode: typeof simplepostalcode;
+    checkboxesvc: typeof checkboxesvc;
+    textareavc: typeof textareavc;
 };
 export default _default;

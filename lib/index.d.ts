@@ -7,11 +7,21 @@ declare const _default: {
         header: typeof import("./components/Header/Component").default;
         paragraph: typeof import("./components/Paragraph/Component").default;
         simplepostalcode: typeof import("./components/SimplePostalCode/Component").default;
+        checkboxesvc: typeof import("./components/CheckBoxesVC/Component").default;
+        textareavc: typeof import("./components/TextAreaVC/Component").default;
     };
     templates: {
         bootstrap: {
             checkmatrix: {
                 form: string;
+            };
+            valuecomponent: {
+                form: string;
+                html: string;
+            };
+            textareavc: {
+                form: string;
+                html: string;
             };
         };
     };

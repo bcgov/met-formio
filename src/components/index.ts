@@ -5,6 +5,8 @@ import simplecheckboxes from './SimpleCheckboxes/Component';
 import simplepostalcode from "./SimplePostalCode/Component";
 import header from "./Header/Component";
 import paragraph from "./Paragraph/Component";
+import checkboxesvc from "./CheckBoxesVC/Component";
+import textareavc from "./TextAreaVC/Component";
 
 export default {
   simpletextfield,
@@ -14,4 +16,6 @@ export default {
   header,
   paragraph,
   simplepostalcode,
+  checkboxesvc,
+  textareavc,
 };
