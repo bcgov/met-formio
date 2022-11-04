@@ -6,7 +6,7 @@ import simplepostalcode from "./SimplePostalCode/Component";
 import header from "./Header/Component";
 import paragraph from "./Paragraph/Component";
 import checkboxesvc from "./CheckBoxesVC/Component";
-import textareavc from "../templates/bootstrap/textareavc";
+import textareavc from "./TextAreaVC/Component";
 
 export default {
   simpletextfield,
