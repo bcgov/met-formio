@@ -8,6 +8,10 @@ declare const _default: {
         paragraph: typeof import("./components/Paragraph/Component").default;
         simplepostalcode: typeof import("./components/SimplePostalCode/Component").default;
         checkboxesvc: typeof import("./components/CheckBoxesVC/Component").default;
+        textareavc: {
+            form: string;
+            html: string;
+        };
     };
     templates: {
         bootstrap: {

@@ -1,9 +1,9 @@
-.card {
+.vcbox {
     border-radius: 12px;
     border: 2px solid #D0CCCC;
   }
   
-  .card-checked-red {
+  .vcbox-checked-red {
     background: #F15A2C1A !important;
     border: 2px solid #F15A2C !important
   }
@@ -12,7 +12,7 @@
     color: #F8A692;
   }
   
-  .card-checked-yellow {
+  .vcbox-checked-yellow {
     background: #FCB92F1A !important;
     border: 2px solid #FCB92F !important
   }
@@ -21,7 +21,7 @@
     color: #FCB92F
   }
   
-  .card-checked-blue {
+  .vcbox-checked-blue {
     background: #A1DDF333 !important;
     border: 2px solid #A1DDF3 !important
   }

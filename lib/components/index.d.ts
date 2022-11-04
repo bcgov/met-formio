@@ -15,5 +15,9 @@ declare const _default: {
     paragraph: typeof paragraph;
     simplepostalcode: typeof simplepostalcode;
     checkboxesvc: typeof checkboxesvc;
+    textareavc: {
+        form: string;
+        html: string;
+    };
 };
 export default _default;
