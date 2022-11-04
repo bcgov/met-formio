@@ -6,16 +6,16 @@ import editForm from './Component.form';
 
 import { Constants } from '../Common/Constants';
 
-const ID = 'checkboxesvc';
+export const CHECKBOXES_VC = 'checkboxesvc';
 const DISPLAY = 'VC Checkbox';
 
 export default class Component extends (ParentComponent as any) {
     static schema(...extend) {
         return ParentComponent.schema(
             {
-                type: ID,
+                type: CHECKBOXES_VC,
                 label: DISPLAY,
-                key: ID,
+                key: CHECKBOXES_VC,
                 inline: false,
                 values: [{ label: 'Virtual Components', value: 'vcs' }],
                 fieldSet: false,

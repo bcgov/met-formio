@@ -1,0 +1,74 @@
+{% if (ctx.prefix || ctx.suffix) { %}
+<div class="input-group">
+  {% } %}
+  {% if (ctx.prefix) { %}
+    <div class="input-group-prepend" ref="prefix">
+    <span class="input-group-text">
+      {% if(ctx.prefix instanceof HTMLElement){ %}
+        {{ ctx.t(ctx.prefix.outerHTML, { _userInput: true }) }}
+      {% } else{ %}
+        {{ ctx.t(ctx.prefix, { _userInput: true }) }}
+      {% } %}
+    </span>
+    </div>
+  {% } %}
+
+  
+  <div class="container p-0 mb-1">
+    <div class="row">
+      {% ctx.valueComponents.forEach(function(item) { %}
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-1">
+        <div class="vcbox vcbox-checked-{{item.category}} p-1">
+          <div class="container">
+            <div class="row align-items-center justify-content-start">
+              <span class="fa-stack icon-stack">
+                <i class="fas fa-circle fa-stack-2x circle-icon-{{item.category}}"></i>
+                <i class="{{item.icon}} fa-stack-1x"></i>
+              </span>
+              <span class="ml-1">{{item.label}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% }) %}
+    </div>
+  </div>
+
+  <{{ctx.input.type}}
+    ref="{{ctx.input.ref ? ctx.input.ref : 'input'}}"
+    {% for (var attr in ctx.input.attr) { %}
+      {{attr}}="{{ctx.input.attr[attr]}}"
+    {% } %}
+    id="{{ctx.instance.id}}-{{ctx.component.key}}"
+    aria-labelledby="l-{{ctx.instance.id}}-{{ctx.component.key}} {% if (ctx.component.description) { %}d-{{ctx.instance.id}}-{{ctx.component.key}}{% } %}"
+    aria-required="{{ctx.input.ref === 'input' || !ctx.input.ref ? ctx.component.validate.required :
+      ctx.component.fields && ctx.component.fields[ctx.input.ref] && ctx.component.fields[ctx.input.ref].required || false}}"
+  >{{ctx.input.content}}</{{ctx.input.type}}>
+  {% if (ctx.hasValueMaskInput) { %}
+    <input ref="valueMaskInput" />
+  {% } %}
+
+{% if (ctx.suffix) { %}
+  <div class="input-group-append" ref="suffix">
+    <span class="input-group-text">
+      {% if(ctx.suffix instanceof HTMLElement){ %}
+        {{ ctx.t(ctx.suffix.outerHTML, { _userInput: true }) }}
+      {% } else{ %}
+        {{ ctx.t(ctx.suffix, { _userInput: true }) }}
+      {% } %}
+    </span>
+  </div>
+{% } %}
+{% if (ctx.prefix || ctx.suffix) { %}
+  </div>
+{% } %}
+{% if (ctx.component.showCharCount || ctx.component.showWordCount) { %}
+<div class="form-text {{ctx.component.description ? 'pull-right' : 'text-right'}}">
+  {% if (ctx.component.showCharCount) { %}
+  <span class="text-muted" ref="charcount" aria-live="polite"></span>
+  {% } %}
+  {% if (ctx.component.showWordCount) { %}
+  <span class="text-muted" ref="wordcount" aria-live="polite"></span>
+  {% } %}
+</div>
+{% } %}
