@@ -48,7 +48,7 @@ export default class Component extends (ParentComponent as any) {
         }
         try {
             this.loading = true;
-            const url = `${localStorage.getItem('apiurl')}`;
+            const url = `${sessionStorage.getItem("apiurl")}`;
             const resp = await Formio.request(`${url}/valuecomponents/`, 'GET', null, null, {
                 headers: {
                     'content-type': 'application/json',
