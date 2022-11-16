@@ -39,12 +39,13 @@ export default class Component extends (ParentComponent as any) {
                                 type: 'customAction',
                                 customAction:
                                     `const change = result[0]\nif(change && change.component.key === '${CHECKBOXES_VC}')` +
-                                    ' {\n  const vcs = change.component.values.filter(vc => change.value[vc.value])\n' +
+                                    ' {\n  const vcs = change.component.values.filter(vc => vc.type === "main" && change.value[vc.value])\n' +
                                     '  instance.valueComponents = [...vcs]\n  instance.redraw()\n}',
                             },
                         ],
                     },
                 ],
+                defaultValueComponents: [],
             },
             ...extend,
         );
@@ -65,7 +66,7 @@ export default class Component extends (ParentComponent as any) {
 
     init() {
         super.init();
-        this.valueComponents = [];
+        this.valueComponents = this.component.defaultValueComponents ? [...this.component.defaultValueComponents] : [];
     }
 
     renderElement(value, index) {

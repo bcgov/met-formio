@@ -9,6 +9,7 @@ declare const _default: {
         simplepostalcode: typeof import("./components/SimplePostalCode/Component").default;
         checkboxesvc: typeof import("./components/CheckBoxesVC/Component").default;
         textareavc: typeof import("./components/TextAreaVC/Component").default;
+        categorycommentcontainer: typeof import("./components/CategoryComponentContainer/Component").default;
     };
     templates: {
         bootstrap: {
