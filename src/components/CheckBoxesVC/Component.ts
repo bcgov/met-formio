@@ -48,7 +48,7 @@ export default class Component extends (ParentComponent as any) {
         }
         try {
             this.loading = true;
-            const url = `${sessionStorage.getItem("apiurl")}`;
+            const url = `${sessionStorage.getItem('apiurl')}`;
             const resp = await Formio.request(`${url}/valuecomponents/`, 'GET', null, null, {
                 headers: {
                     'content-type': 'application/json',
@@ -65,7 +65,7 @@ export default class Component extends (ParentComponent as any) {
         const valueComponents = vcs.map((vc) => {
             return {
                 label: vc.title,
-                value: vc.id,
+                value: vc.custom_key || vc.id,
                 icon: vc.icon,
                 category: vc.category,
             };

@@ -23,6 +23,13 @@
 .circle-icon-blue {
   color: #A1DDF3; }
 
+.vcbox-checked-other {
+  background: #f2f5f5 !important;
+  border: 2px solid #abb8bb !important; }
+
+.circle-icon-other {
+  color: #BFCDD0; }
+
 .icon-stack {
   font-size: 1.2em; }
 
