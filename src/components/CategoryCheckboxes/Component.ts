@@ -78,7 +78,7 @@ export default class Component extends (ParentComponent as any) {
         };
       }
     );
-    console.log(loadedCategoryComponents);
+    this.component.values = [...loadedCategoryComponents];
     this.redraw();
   }
 
