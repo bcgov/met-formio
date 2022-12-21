@@ -61,7 +61,7 @@ export default class Component extends (ParentComponent as any) {
           mode: "cors",
         }
       );
-      this.loadCCs(resp.result);
+      this.loadCCs(resp);
     } catch (err) {
       this.handleLoadingError(err);
     }
@@ -78,7 +78,7 @@ export default class Component extends (ParentComponent as any) {
         };
       }
     );
-    this.component.values = [...loadedCategoryComponents];
+    console.log(loadedCategoryComponents);
     this.redraw();
   }
 
