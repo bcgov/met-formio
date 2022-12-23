@@ -4,11 +4,11 @@ const ParentComponent = (Components as any).components.container;
 import editForm from './Component.form';
 
 import { Constants } from '../Common/Constants';
-import { CHECKBOXES_VC } from '../CheckBoxesVC/Component';
+import { CATEGORY_CHECKBOXES } from "../CategoryCheckboxes/Component";
 
-const ID = 'categorycommentcontainer';
-const DISPLAY = 'Category Comment';
-const OTHER = 'other';
+const ID = "categorycommentcontainer";
+const DISPLAY = "Category Comment";
+const OTHER = "other";
 
 export default class Component extends (ParentComponent as any) {
   static schema(...extend) {
@@ -22,8 +22,8 @@ export default class Component extends (ParentComponent as any) {
           {
             label:
               "We would like to learn more about your concerns, thoughts, and idea in relation to the items you selected.",
-            key: "textareavc",
-            type: "textareavc",
+            key: "categorytextarea",
+            type: "categorytextarea",
             rows: 3,
             wysiwyg: false,
             editor: "",
@@ -43,12 +43,12 @@ export default class Component extends (ParentComponent as any) {
                 },
                 actions: [
                   {
-                    name: "update value components",
+                    name: "update category components",
                     type: "customAction",
                     customAction:
-                      `const change = result[0]\nif(change && change.component.key === '${CHECKBOXES_VC}')` +
-                      ` {\n  const vcs = change.component.values.filter(vc => change.value[vc.value] && vc.value !== '${OTHER}')\n` +
-                      "  instance.valueComponents = [...vcs]\n  instance.redraw()\n}",
+                      `const change = result[0]\nif(change && change.component.key === '${CATEGORY_CHECKBOXES}')` +
+                      ` {\n  const filteredCategoryComponents = change.component.values.filter(cc => change.value[cc.value] && cc.value !== '${OTHER}')\n` +
+                      "  instance.categoryComponents = [...filteredCategoryComponents]\n  instance.redraw()\n}",
                   },
                 ],
               },
@@ -56,9 +56,9 @@ export default class Component extends (ParentComponent as any) {
           },
           {
             label: "Tell us more about the other concerns that you have.",
-            key: "textareavc1",
-            customConditional: `show = data && data['${CHECKBOXES_VC}'] && data['${CHECKBOXES_VC}']['${OTHER}']`,
-            type: "textareavc",
+            key: "categorytextarea1",
+            customConditional: `show = data && data['${CATEGORY_CHECKBOXES}'] && data['${CATEGORY_CHECKBOXES}']['${OTHER}']`,
+            type: "categorytextarea",
             rows: 3,
             wysiwyg: false,
             editor: "",
@@ -78,12 +78,12 @@ export default class Component extends (ParentComponent as any) {
                 },
                 actions: [
                   {
-                    name: "update value components",
+                    name: "update category components",
                     type: "customAction",
                     customAction:
-                      `const change = result[0]\nif(change && change.component.key === '${CHECKBOXES_VC}')` +
-                      ` {\n  const vcs = change.component.values.filter(vc => vc.value === '${OTHER}')\n` +
-                      "  instance.valueComponents = [...vcs]\n  instance.redraw()\n}",
+                      `const change = result[0]\nif(change && change.component.key === '${CATEGORY_CHECKBOXES}')` +
+                      ` {\n  const filteredCategoryComponents = change.component.values.filter(cc => cc.value === '${OTHER}')\n` +
+                      "  instance.categoryComponents = [...filteredCategoryComponents]\n  instance.redraw()\n}",
                   },
                 ],
               },

@@ -7,8 +7,8 @@ declare const _default: {
         header: typeof import("./components/Header/Component").default;
         paragraph: typeof import("./components/Paragraph/Component").default;
         simplepostalcode: typeof import("./components/SimplePostalCode/Component").default;
-        checkboxesvc: typeof import("./components/CheckBoxesVC/Component").default;
-        textareavc: typeof import("./components/TextAreaVC/Component").default;
+        categorycheckboxes: typeof import("./components/CategoryCheckboxes/Component").default;
+        categorytextarea: typeof import("./components/CategoryTextArea/Component").default;
         categorycommentcontainer: typeof import("./components/CategoryComponentContainer/Component").default;
     };
     templates: {
@@ -16,11 +16,11 @@ declare const _default: {
             checkmatrix: {
                 form: string;
             };
-            valuecomponent: {
+            categorycomponent: {
                 form: string;
                 html: string;
             };
-            textareavc: {
+            categorytextarea: {
                 form: string;
                 html: string;
             };

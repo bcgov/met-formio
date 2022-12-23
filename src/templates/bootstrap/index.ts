@@ -1,9 +1,9 @@
 import checkmatrix from './checkmatrix';
-import valuecomponent from './valuecomponent';
-import textareavc from './textareavc';
+import categorycomponent from './categorycomponent';
+import categorytextarea from './categorytextarea';
 
 export default {
   checkmatrix,
-  valuecomponent,
-  textareavc
+  categorycomponent,
+  categorytextarea
 };

@@ -2,11 +2,11 @@ declare const _default: {
     checkmatrix: {
         form: string;
     };
-    valuecomponent: {
+    categorycomponent: {
         form: string;
         html: string;
     };
-    textareavc: {
+    categorytextarea: {
         form: string;
         html: string;
     };
