@@ -1,48 +1,52 @@
 .vcbox {
     border-radius: 12px;
     border: 2px solid #D0CCCC;
-  }
+}
   
-  .vcbox-checked-red {
-    background: #F15A2C1A !important;
-    border: 2px solid #F15A2C !important
-  }
-    
-  .circle-icon-red {
-    color: #F8A692;
-  }
+.vcbox-checked-red {
+  background: #F15A2C1A !important;
+  border: 2px solid #F15A2C !important
+}
   
-  .vcbox-checked-yellow {
-    background: #FCB92F1A !important;
-    border: 2px solid #FCB92F !important
-  }
-    
-  .circle-icon-yellow {
-    color: #FCB92F
-  }
-  
-  .vcbox-checked-blue {
-    background: #A1DDF333 !important;
-    border: 2px solid #A1DDF3 !important
-  }
-    
-   .circle-icon-blue {
-    color: #A1DDF3;
-  }
+.circle-icon-red {
+  color: #F8A692;
+}
 
-  .vcbox-checked-other {
-    background: #f2f5f5 !important;
-    border: 2px solid #abb8bb !important
-  }
-    
-  .circle-icon-other {
-    color: #BFCDD0;
-  }
+.vcbox-checked-yellow {
+  background: #FCB92F1A !important;
+  border: 2px solid #FCB92F !important
+}
   
-  .icon-stack {
-    font-size: 1.2em
-  }
+.circle-icon-yellow {
+  color: #FCB92F
+}
+
+.vcbox-checked-blue {
+  background: #A1DDF333 !important;
+  border: 2px solid #A1DDF3 !important
+}
   
-  .cc-check {
-    position: relative
-  }
+  .circle-icon-blue {
+  color: #A1DDF3;
+}
+
+.vcbox-checked-other {
+  background: #f2f5f5 !important;
+  border: 2px solid #abb8bb !important
+}
+  
+.circle-icon-other {
+  color: #BFCDD0;
+}
+
+.icon-stack {
+  font-size: 1.2em
+}
+
+.cc-check {
+  position: relative
+} 
+
+.builder-sidebar_search {
+  display: none;
+}
