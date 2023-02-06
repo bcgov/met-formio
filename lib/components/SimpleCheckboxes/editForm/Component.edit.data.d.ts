@@ -27,10 +27,11 @@ declare const _default: ({
         key: string;
         input: boolean;
         type: string;
+        validate: {
+            required: boolean;
+        };
         allowCalculateOverride?: undefined;
         calculateValue?: undefined;
-        validate?: undefined;
-        hidden?: undefined;
         tooltip?: undefined;
         dataSrc?: undefined;
         valueProperty?: undefined;
@@ -52,7 +53,6 @@ declare const _default: ({
         validate: {
             required: boolean;
         };
-        hidden: boolean;
         tooltip?: undefined;
         dataSrc?: undefined;
         valueProperty?: undefined;
@@ -70,13 +70,12 @@ declare const _default: ({
         valueProperty: string;
         customDefaultValue: () => string;
         template: string;
-        hidden: boolean;
         data: {
             custom(context: any): any;
         };
+        validate?: undefined;
         allowCalculateOverride?: undefined;
         calculateValue?: undefined;
-        validate?: undefined;
     })[];
     placeholder?: undefined;
 })[];
