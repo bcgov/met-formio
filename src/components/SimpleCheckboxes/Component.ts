@@ -30,7 +30,7 @@ export default class Component extends (ParentComponent as any) {
             title: DISPLAY,
             group: 'simple',
             icon: 'check-square-o',
-            weight: 5,
+            weight: 7,
             documentation: Constants.DEFAULT_HELP_LINK,
             schema: Component.schema(),
         };

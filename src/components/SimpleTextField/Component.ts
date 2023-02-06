@@ -41,7 +41,7 @@ export default class Component extends (ParentComponent as any) {
             title: DISPLAY,
             group: 'simple',
             icon: 'terminal',
-            weight: 1,
+            weight: 3,
             documentation: Constants.DEFAULT_HELP_LINK,
             schema: Component.schema(),
         };
