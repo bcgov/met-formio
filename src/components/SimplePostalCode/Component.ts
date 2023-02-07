@@ -30,7 +30,7 @@ export default class Component extends (ParentComponent as any) {
             title: DISPLAY,
             group: 'simple',
             icon: 'map',
-            weight: 11,
+            weight: 5,
             documentation: Constants.DEFAULT_HELP_LINK,
             schema: Component.schema(),
         };

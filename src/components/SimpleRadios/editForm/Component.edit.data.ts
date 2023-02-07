@@ -3,20 +3,22 @@ import _ from 'lodash';
 
 export default [
     {
-      type: 'textfield',
-      label: 'Default Value',
-      key: 'defaultValue',
-      weight: 5,
-      placeholder: 'Default Value',
-      tooltip: 'The will be the value for this field, before user interaction. Having a default value will override the placeholder text.',
-      input: true
+        type: 'textfield',
+        label: 'Default Value',
+        key: 'defaultValue',
+        weight: 5,
+        placeholder: 'Default Value',
+        tooltip:
+            'The will be the value for this field, before user interaction. Having a default value will override the placeholder text.',
+        input: true,
     },
     {
         type: 'datagrid',
         input: true,
         label: 'Values',
         key: 'values',
-        tooltip: 'The values that can be picked for this field. Values are text submitted with the form data. Labels are text that appears next to the radio buttons on the form.',
+        tooltip:
+            'The values that can be picked for this field. Values are text submitted with the form data. Labels are text that appears next to the radio buttons on the form.',
         weight: 10,
         reorder: true,
         defaultValue: [{ label: '', value: '' }],
@@ -27,6 +29,9 @@ export default [
                 key: 'label',
                 input: true,
                 type: 'textfield',
+                validate: {
+                    required: true,
+                },
             },
             {
                 weight: 170,
@@ -37,8 +42,8 @@ export default [
                 allowCalculateOverride: true,
                 calculateValue: { _camelCase: [{ var: 'row.label' }] },
                 validate: {
-                    required: true
-                }
+                    required: true,
+                },
             },
             {
                 type: 'select',
@@ -55,7 +60,7 @@ export default [
                     custom(context) {
                         return BuilderUtils.getAvailableShortcuts(
                             _.get(context, 'instance.options.editForm', {}),
-                            _.get(context, 'instance.options.editComponent', {})
+                            _.get(context, 'instance.options.editComponent', {}),
                         );
                     },
                 },
