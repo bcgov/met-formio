@@ -8,6 +8,7 @@ import paragraph from './Paragraph/Component';
 import categorycheckboxes from "./CategoryCheckboxes/Component";
 import categorytextarea from "./CategoryTextArea/Component";
 import categorycommentcontainer from "./CategoryComponentContainer/Component";
+import simplehtmlelement from './SimpleHTMLElement/Component';
 declare const _default: {
     simpletextfield: typeof simpletextfield;
     simpletextarea: typeof simpletextarea;
@@ -19,5 +20,6 @@ declare const _default: {
     categorycheckboxes: typeof categorycheckboxes;
     categorytextarea: typeof categorytextarea;
     categorycommentcontainer: typeof categorycommentcontainer;
+    simplehtmlelement: typeof simplehtmlelement;
 };
 export default _default;

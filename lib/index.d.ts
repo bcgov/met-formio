@@ -10,6 +10,7 @@ declare const _default: {
         categorycheckboxes: typeof import("./components/CategoryCheckboxes/Component").default;
         categorytextarea: typeof import("./components/CategoryTextArea/Component").default;
         categorycommentcontainer: typeof import("./components/CategoryComponentContainer/Component").default;
+        simplehtmlelement: typeof import("./components/SimpleHTMLElement/Component").default;
     };
     templates: {
         bootstrap: {
