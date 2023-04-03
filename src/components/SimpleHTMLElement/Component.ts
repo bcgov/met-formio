@@ -5,7 +5,7 @@ import editForm from './Component.form';
 
 import { Constants } from '../Common/Constants';
 
-const ID = 'htmlelement';
+const ID = 'simplehtmlelement';
 const DISPLAY = 'HTML Element';
 
 export default class Component extends (ParentComponent as any) {

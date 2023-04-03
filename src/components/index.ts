@@ -8,7 +8,7 @@ import paragraph from './Paragraph/Component';
 import categorycheckboxes from "./CategoryCheckboxes/Component";
 import categorytextarea from "./CategoryTextArea/Component";
 import categorycommentcontainer from "./CategoryComponentContainer/Component";
-import htmlelement from './SimpleHTMLElement/Component';
+import simplehtmlelement from './SimpleHTMLElement/Component';
 
 export default {
   simpletextfield,
@@ -21,5 +21,5 @@ export default {
   categorycheckboxes,
   categorytextarea,
   categorycommentcontainer,
-  htmlelement,
+  simplehtmlelement,
 };
