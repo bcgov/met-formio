@@ -1,6 +1,22 @@
 /* eslint-disable quotes, max-len */
 export default [
   {
+    weight: 0,
+    type: "select",
+    key: "validateOn",
+    defaultValue: "change",
+    input: true,
+    label: "Validate On",
+    tooltip: "Determines when this component should trigger validation.",
+    dataSrc: "values",
+    data: {
+      values: [
+        { label: "Change", value: "change" },
+        { label: "Blur", value: "blur" },
+      ],
+    },
+  },
+  {
     weight: 10,
     type: "checkbox",
     label: "Required",
