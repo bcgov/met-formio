@@ -1,38 +1,38 @@
 /* tslint:disable */
-import { Components } from 'formiojs';
+import { Components } from "formiojs";
 const ParentComponent = (Components as any).components.textfield;
-import editForm from './Component.form';
+import editForm from "./Component.form";
 
-import { Constants } from '../Common/Constants';
+import { Constants } from "../Common/Constants";
 
-const ID = 'simplepostalcode';
-const DISPLAY = 'Postal Code';
+const ID = "simplepostalcode";
+const DISPLAY = "Postal Code";
 
 export default class Component extends (ParentComponent as any) {
-    static schema(...extend) {
-        return ParentComponent.schema(
-            {
-                type: ID,
-                label: DISPLAY,
-                key: ID,
-                inputType: 'postalcode',
-                inputFormat: 'plain',
-                inputMask: '***',
-            },
-            ...extend,
-        );
-    }
+  static schema(...extend) {
+    return ParentComponent.schema(
+      {
+        type: ID,
+        label: DISPLAY,
+        key: ID,
+        inputType: "postalcode",
+        inputFormat: "plain",
+        inputMask: "***",
+      },
+      ...extend
+    );
+  }
 
-    public static editForm = editForm;
+  public static editForm = editForm;
 
-    static get builderInfo() {
-        return {
-            title: DISPLAY,
-            group: 'simple',
-            icon: 'map',
-            weight: 5,
-            documentation: Constants.DEFAULT_HELP_LINK,
-            schema: Component.schema(),
-        };
-    }
+  static get builderInfo() {
+    return {
+      title: DISPLAY,
+      group: "simple",
+      icon: "map",
+      weight: 40,
+      documentation: Constants.DEFAULT_HELP_LINK,
+      schema: Component.schema(),
+    };
+  }
 }

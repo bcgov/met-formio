@@ -11,6 +11,8 @@ declare const _default: {
         categorytextarea: typeof import("./components/CategoryTextArea/Component").default;
         categorycommentcontainer: typeof import("./components/CategoryComponentContainer/Component").default;
         simplehtmlelement: typeof import("./components/SimpleHTMLElement/Component").default;
+        simpleselect: typeof import("./components/SimpleSelect/Component").default;
+        simplesurvey: typeof import("./components/SimpleSurvey/Component").default;
     };
     templates: {
         bootstrap: {

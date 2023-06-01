@@ -1,4 +1,4 @@
-import editForm from './Component.form';
+import editForm from "./Component.form";
 declare const Component_base: any;
 export default class Component extends Component_base {
     static schema(...extend: any[]): any;
