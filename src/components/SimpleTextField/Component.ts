@@ -1,49 +1,49 @@
 /* tslint:disable */
-import { Components } from 'formiojs';
+import { Components } from "formiojs";
 const ParentComponent = (Components as any).components.textfield;
-import editForm from './Component.form';
+import editForm from "./Component.form";
 
-import { Constants } from '../Common/Constants';
+import { Constants } from "../Common/Constants";
 
-const ID = 'simpletextfield';
-const DISPLAY = 'Single Line Answer';
+const ID = "simpletextfield";
+const DISPLAY = "Single Line Answer";
 
 export default class Component extends (ParentComponent as any) {
-    static schema(...extend) {
-        return ParentComponent.schema(
-            {
-                type: ID,
-                label: DISPLAY,
-                key: ID,
-                mask: false,
-                inputType: 'text',
-                inputFormat: 'plain',
-                inputMask: '',
-                tableView: false,
-                spellcheck: true,
-                widget: {
-                    type: 'input',
-                },
-                validate: {
-                    minLength: '',
-                    maxLength: '',
-                    pattern: '',
-                },
-            },
-            ...extend,
-        );
-    }
+  static schema(...extend) {
+    return ParentComponent.schema(
+      {
+        type: ID,
+        label: DISPLAY,
+        key: ID,
+        mask: false,
+        inputType: "text",
+        inputFormat: "plain",
+        inputMask: "",
+        tableView: false,
+        spellcheck: true,
+        widget: {
+          type: "input",
+        },
+        validate: {
+          minLength: "",
+          maxLength: "",
+          pattern: "",
+        },
+      },
+      ...extend
+    );
+  }
 
-    public static editForm = editForm;
+  public static editForm = editForm;
 
-    static get builderInfo() {
-        return {
-            title: DISPLAY,
-            group: 'simple',
-            icon: 'terminal',
-            weight: 3,
-            documentation: Constants.DEFAULT_HELP_LINK,
-            schema: Component.schema(),
-        };
-    }
+  static get builderInfo() {
+    return {
+      title: DISPLAY,
+      group: "simple",
+      icon: "terminal",
+      weight: 20,
+      documentation: Constants.DEFAULT_HELP_LINK,
+      schema: Component.schema(),
+    };
+  }
 }

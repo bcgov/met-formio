@@ -1,38 +1,38 @@
 /* tslint:disable */
-import { Components } from 'formiojs';
+import { Components } from "formiojs";
 const ParentComponent = (Components as any).components.selectboxes;
-import editForm from './Component.form';
+import editForm from "./Component.form";
 
-import { Constants } from '../Common/Constants';
+import { Constants } from "../Common/Constants";
 
-const ID = 'simplecheckboxes';
-const DISPLAY = 'Checkbox';
+const ID = "simplecheckboxes";
+const DISPLAY = "Checkbox";
 
 export default class Component extends (ParentComponent as any) {
-    static schema(...extend) {
-        return ParentComponent.schema(
-            {
-                type: ID,
-                label: DISPLAY,
-                key: ID,
-                inline: false,
-                values: [{ label: '', value: '' }],
-                fieldSet: false,
-            },
-            ...extend,
-        );
-    }
+  static schema(...extend) {
+    return ParentComponent.schema(
+      {
+        type: ID,
+        label: DISPLAY,
+        key: ID,
+        inline: false,
+        values: [{ label: "", value: "" }],
+        fieldSet: false,
+      },
+      ...extend
+    );
+  }
 
-    public static editForm = editForm;
+  public static editForm = editForm;
 
-    static get builderInfo() {
-        return {
-            title: DISPLAY,
-            group: 'simple',
-            icon: 'check-square-o',
-            weight: 7,
-            documentation: Constants.DEFAULT_HELP_LINK,
-            schema: Component.schema(),
-        };
-    }
+  static get builderInfo() {
+    return {
+      title: DISPLAY,
+      group: "simple",
+      icon: "check-square-o",
+      weight: 70,
+      documentation: Constants.DEFAULT_HELP_LINK,
+      schema: Component.schema(),
+    };
+  }
 }
