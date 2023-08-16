@@ -9,26 +9,26 @@ export default [
         weight: 5,
         placeholder: 'Default Value',
         tooltip:
-            'The will be the value for this field, before user interaction. Having a default value will override the placeholder text.',
+            'Enter your labels for this question below and select here any options you want pre-selected to true (already selected). ',
         input: true,
     },
     {
         type: 'datagrid',
         input: true,
-        label: 'Values',
+        label: 'Labels & Values',
         key: 'values',
-        tooltip:
-            'The values that can be picked for this field. Values are text submitted with the form data. Labels are text that appears next to the radio buttons on the form.',
         weight: 10,
         reorder: true,
         defaultValue: [{ label: '', value: '' }],
         components: [
             {
                 weight: 160,
-                label: 'Label',
+                label: 'Labels',
                 key: 'label',
                 input: true,
                 type: 'textfield',
+                tooltip:
+                    'Labels are the text that appears next to the radio buttons on the form (the possible “answers”.)',
                 validate: {
                     required: true,
                 },
@@ -39,6 +39,8 @@ export default [
                 key: 'value',
                 input: true,
                 type: 'textfield',
+                tooltip:
+                    'Values are text submitted with the form data. They won’t appear on the form. Values will be automatically generated when you enter the labels. They are editable.',
                 allowCalculateOverride: true,
                 calculateValue: { _camelCase: [{ var: 'row.label' }] },
                 validate: {
@@ -54,6 +56,7 @@ export default [
                 tooltip: 'The shortcut key for this option.',
                 dataSrc: 'custom',
                 valueProperty: 'value',
+                hidden: true,
                 customDefaultValue: () => '',
                 template: '{{ item.label }}',
                 data: {

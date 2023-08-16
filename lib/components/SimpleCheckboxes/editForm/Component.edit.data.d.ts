@@ -14,7 +14,6 @@ declare const _default: ({
     input: boolean;
     label: string;
     key: string;
-    tooltip: string;
     weight: number;
     reorder: boolean;
     defaultValue: {
@@ -27,14 +26,15 @@ declare const _default: ({
         key: string;
         input: boolean;
         type: string;
+        tooltip: string;
         validate: {
             required: boolean;
         };
         allowCalculateOverride?: undefined;
         calculateValue?: undefined;
-        tooltip?: undefined;
         dataSrc?: undefined;
         valueProperty?: undefined;
+        hidden?: undefined;
         customDefaultValue?: undefined;
         template?: undefined;
         data?: undefined;
@@ -44,6 +44,7 @@ declare const _default: ({
         key: string;
         input: boolean;
         type: string;
+        tooltip: string;
         allowCalculateOverride: boolean;
         calculateValue: {
             _camelCase: {
@@ -53,9 +54,9 @@ declare const _default: ({
         validate: {
             required: boolean;
         };
-        tooltip?: undefined;
         dataSrc?: undefined;
         valueProperty?: undefined;
+        hidden?: undefined;
         customDefaultValue?: undefined;
         template?: undefined;
         data?: undefined;
@@ -68,6 +69,7 @@ declare const _default: ({
         tooltip: string;
         dataSrc: string;
         valueProperty: string;
+        hidden: boolean;
         customDefaultValue: () => string;
         template: string;
         data: {
@@ -78,5 +80,6 @@ declare const _default: ({
         calculateValue?: undefined;
     })[];
     placeholder?: undefined;
+    tooltip?: undefined;
 })[];
 export default _default;

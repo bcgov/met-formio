@@ -6,7 +6,6 @@ import SimpleConditional from '../Common/Simple.edit.conditional';
 export default function (...extend) {
     return baseEditForm(
         [
-            EditDisplay,
             {
                 key: 'data',
                 ignore: true,
@@ -34,6 +33,13 @@ export default function (...extend) {
             {
                 key: 'addons',
                 ignore: true,
+            },
+            { key: 'display', ignore: true },
+            {
+                label: 'Display',
+                key: 'customDisplay',
+                weight: 20,
+                components: EditDisplay,
             },
             {
                 label: 'Validation',

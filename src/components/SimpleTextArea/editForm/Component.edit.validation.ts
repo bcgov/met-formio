@@ -4,20 +4,20 @@ export default [
     {
         weight: 110,
         key: 'validate.minLength',
-        label: 'Minimum Length',
-        placeholder: 'Minimum Length',
+        label: 'Minimum Character Length',
+        placeholder: 'Minimum Character Length',
         type: 'number',
-        tooltip: 'The minimum length requirement this field must meet.',
-        input: true
+        tooltip: 'This is the minimum number of characters required for this field. ',
+        input: true,
     },
     {
         weight: 120,
         key: 'validate.maxLength',
-        label: 'Maximum Length',
-        placeholder: 'Maximum Length',
+        label: 'Maximum Character Length',
+        placeholder: 'Maximum Character Length',
         type: 'number',
-        tooltip: 'The maximum length requirement this field must meet.',
-        input: true
+        tooltip: 'This is the maximum number of characters required for this field. ',
+        input: true,
     },
     {
         weight: 125,
@@ -26,7 +26,7 @@ export default [
         placeholder: 'Minimum Word Length',
         type: 'number',
         tooltip: 'The minimum amount of words that can be added to this field.',
-        input: true
+        input: true,
     },
     {
         weight: 126,
@@ -35,6 +35,6 @@ export default [
         placeholder: 'Maximum Word Length',
         type: 'number',
         tooltip: 'The maximum amount of words that can be added to this field.',
-        input: true
+        input: true,
     },
 ];

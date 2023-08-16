@@ -7,6 +7,46 @@ export default [
         ignore: true,
     },
     {
+        key: 'persistent',
+        ignore: true,
+    },
+    {
+        key: 'protected',
+        ignore: true,
+    },
+    {
+        key: 'dbIndex',
+        ignore: true,
+    },
+    {
+        key: 'encrypted',
+        ignore: true,
+    },
+    {
+        key: 'redrawOn',
+        ignore: true,
+    },
+    {
+        key: 'clearOnHide',
+        ignore: true,
+    },
+    {
+        key: 'allowCalculateOverride',
+        ignore: true,
+    },
+    {
+        key: 'calculateServer',
+        ignore: true,
+    },
+    {
+        key: 'customDefaultValue',
+        ignore: true,
+    },
+    {
+        key: 'calculateValue',
+        ignore: true,
+    },
+    {
         type: 'datagrid',
         input: true,
         label: 'Questions',
