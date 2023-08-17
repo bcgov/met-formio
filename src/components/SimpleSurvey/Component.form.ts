@@ -37,13 +37,17 @@ export default function (...extend) {
                 ignore: true,
             },
             {
+                key: 'data',
+                ignore: true,
+            },
+            {
                 label: 'Display',
                 key: 'customDisplay',
                 weight: 10,
                 components: EditDisplay,
             },
             {
-                key: 'data',
+                key: 'customData',
                 label: 'Values',
                 weight: 20,
                 components: EditData,

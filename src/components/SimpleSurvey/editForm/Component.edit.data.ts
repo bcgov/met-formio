@@ -1,51 +1,4 @@
-import common from '../../Common/Simple.edit.data';
-
 export default [
-    ...common,
-    {
-        key: 'multiple',
-        ignore: true,
-    },
-    {
-        key: 'persistent',
-        ignore: true,
-    },
-    {
-        key: 'protected',
-        ignore: true,
-    },
-    {
-        key: 'dbIndex',
-        ignore: true,
-    },
-    {
-        key: 'encrypted',
-        ignore: true,
-    },
-    {
-        key: 'redrawOn',
-        ignore: true,
-    },
-    {
-        key: 'clearOnHide',
-        ignore: true,
-    },
-    {
-        key: 'allowCalculateOverride',
-        ignore: true,
-    },
-    {
-        key: 'calculateServer',
-        ignore: true,
-    },
-    {
-        key: 'customDefaultValue',
-        ignore: true,
-    },
-    {
-        key: 'calculateValue',
-        ignore: true,
-    },
     {
         type: 'datagrid',
         input: true,
@@ -109,5 +62,14 @@ export default [
                 type: 'textfield',
             },
         ],
+    },
+    {
+        type: 'textfield',
+        label: 'Default Value',
+        key: 'defaultValue',
+        weight: 5,
+        placeholder: 'Default Value',
+        tooltip: 'Select which option will be selected by default.',
+        input: true,
     },
 ];
