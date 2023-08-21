@@ -6,51 +6,60 @@ import SimpleConditional from '../Common/Simple.edit.conditional';
 
 export default function (...extend) {
     return radioEditForm(
-      [
-        EditDisplay,
-        {
-          key: "data",
-          ignore: true,
-        },
-        {
-          key: "api",
-          ignore: true,
-        },
-        {
-          key: "layout",
-          ignore: true,
-        },
-        {
-          key: "conditional",
-          ignore: true,
-        },
-        {
-          key: "validation",
-          ignore: true,
-        },
-        {
-          key: "logic",
-          ignore: true,
-        },
-        {
-          label: "Values",
-          key: "customData",
-          weight: 10,
-          components: EditData,
-        },
-        {
-          label: "Validation",
-          key: "customValidation",
-          weight: 20,
-          components: EditValidation,
-        },
-        {
-          label: "Conditional",
-          key: "customConditional",
-          weight: 40,
-          components: SimpleConditional,
-        },
-      ],
-      ...extend
+        [
+            {
+                key: 'data',
+                ignore: true,
+            },
+            {
+                key: 'api',
+                ignore: true,
+            },
+            {
+                key: 'layout',
+                ignore: true,
+            },
+            {
+                key: 'conditional',
+                ignore: true,
+            },
+            {
+                key: 'validation',
+                ignore: true,
+            },
+            {
+                key: 'logic',
+                ignore: true,
+            },
+            {
+                key: 'display',
+                ignore: true,
+            },
+            {
+                label: 'Display',
+                key: 'customDisplay',
+                weight: 10,
+                components: EditDisplay,
+            },
+            {
+                label: 'Values',
+                key: 'customData',
+                weight: 20,
+                components: EditData,
+            },
+            {
+                label: 'Validation',
+                key: 'customValidation',
+                weight: 30,
+                components: EditValidation,
+            },
+            {
+                label: 'Conditional',
+                key: 'customConditional',
+                weight: 40,
+                components: SimpleConditional,
+            },
+        ],
+        ...extend,
     );
 }

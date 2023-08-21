@@ -1,11 +1,4 @@
-import common from '../../Common/Simple.edit.data';
-
 export default [
-    ...common,
-    {
-        key: 'multiple',
-        ignore: true,
-    },
     {
         type: 'datagrid',
         input: true,
@@ -69,5 +62,14 @@ export default [
                 type: 'textfield',
             },
         ],
+    },
+    {
+        type: 'textfield',
+        label: 'Default Value',
+        key: 'defaultValue',
+        weight: 5,
+        placeholder: 'Default Value',
+        tooltip: 'Select which option will be selected by default.',
+        input: true,
     },
 ];

@@ -6,19 +6,20 @@ export default [
         input: true,
         label: 'Select List Items',
         key: 'data.values',
-        tooltip: 'Values to use in the list. Labels are shown in the select field. Values are the corresponding values saved with the submission.',
+        tooltip:
+            'Values to use in the list. Labels are shown in the select field. Values are the corresponding values saved with the submission.',
         weight: 10,
         reorder: true,
         defaultValue: [{ label: '', value: '' }],
         components: [
             {
-                label: 'Label',
+                label: 'Labels',
                 key: 'label',
                 input: true,
                 type: 'textfield',
             },
             {
-                label: 'Value',
+                label: 'Values',
                 key: 'value',
                 input: true,
                 type: 'textfield',
@@ -26,5 +27,5 @@ export default [
                 calculateValue: { _camelCase: [{ var: 'row.label' }] },
             },
         ],
-    }
+    },
 ];

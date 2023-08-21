@@ -6,6 +6,10 @@ export default {
             ignore: true,
         },
         {
+            key: 'customClass',
+            ignore: true,
+        },
+        {
             key: 'hidden',
             ignore: true,
         },
@@ -87,21 +91,12 @@ export default {
             editor: 'ace',
             rows: 10,
             as: 'html',
-            label: 'Content',
-            tooltip: 'The content of this HTML element.',
-            defaultValue: '<div class="well">Content</div>',
+            label: 'Paragraph Content',
+            tooltip:
+                'Write your paragraph in this section. <brYou can preview the paragraph on the right in the “Preview” section.',
+            defaultValue: '<div class="well">Paragraph Content</div>',
             key: 'content',
             weight: 0,
-        },
-        {
-            type: 'textfield',
-            input: true,
-            key: 'className',
-            weight: 60,
-            label: 'CSS Class',
-            placeholder: 'CSS Class',
-            tooltip: 'The CSS class for this HTML element.',
-            defaultValue: 'title',
         },
     ],
 };

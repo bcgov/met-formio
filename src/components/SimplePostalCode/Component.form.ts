@@ -6,7 +6,6 @@ import SimpleValidation from '../Common/Simple.edit.validation';
 export default function (...extend) {
     return baseEditForm(
         [
-            EditDisplay,
             {
                 key: 'data',
                 ignore: true,
@@ -35,6 +34,13 @@ export default function (...extend) {
                 key: 'addons',
                 ignore: true,
             },
+            { key: 'display', ignore: true },
+            {
+                label: 'Display',
+                key: 'customDisplay',
+                weight: 20,
+                components: EditDisplay,
+            },
             {
                 label: 'Validation',
                 key: 'customValidation',
@@ -42,7 +48,7 @@ export default function (...extend) {
                 components: SimpleValidation,
             },
             {
-                label: 'Conditional',
+                label: 'Conditions',
                 key: 'customConditional',
                 weight: 40,
                 components: SimpleConditional,

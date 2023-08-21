@@ -20,10 +20,6 @@ export default [
         ignore: true,
     },
     {
-        key: 'customClass',
-        ignore: true,
-    },
-    {
         key: 'disabled',
         ignore: true,
     },
@@ -33,6 +29,10 @@ export default [
     },
     {
         key: 'hideLabel',
+        ignore: true,
+    },
+    {
+        key: 'label',
         ignore: true,
     },
 ];

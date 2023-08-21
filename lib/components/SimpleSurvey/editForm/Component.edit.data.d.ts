@@ -1,31 +1,4 @@
 declare const _default: ({
-    weight: number;
-    type: string;
-    label: string;
-    tooltip: string;
-    key: string;
-    input: boolean;
-    placeholder?: undefined;
-} | {
-    type: string;
-    label: string;
-    key: string;
-    weight: number;
-    placeholder: string;
-    tooltip: string;
-    input: boolean;
-} | {
-    key: string;
-    ignore: boolean;
-    type?: undefined;
-    input?: undefined;
-    label?: undefined;
-    tooltip?: undefined;
-    weight?: undefined;
-    reorder?: undefined;
-    defaultValue?: undefined;
-    components?: undefined;
-} | {
     type: string;
     input: boolean;
     label: string;
@@ -56,6 +29,17 @@ declare const _default: ({
             }[];
         };
     })[];
-    ignore?: undefined;
+    placeholder?: undefined;
+} | {
+    type: string;
+    label: string;
+    key: string;
+    weight: number;
+    placeholder: string;
+    tooltip: string;
+    input: boolean;
+    reorder?: undefined;
+    defaultValue?: undefined;
+    components?: undefined;
 })[];
 export default _default;
