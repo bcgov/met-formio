@@ -7,6 +7,7 @@ declare const _default: {
         header: typeof import("./components/Header/Component").default;
         paragraph: typeof import("./components/Paragraph/Component").default;
         simplepostalcode: typeof import("./components/SimplePostalCode/Component").default;
+        simplecontent: typeof import("./components/SimpleContent/Component").default;
         categorycheckboxes: typeof import("./components/CategoryCheckboxes/Component").default;
         categorytextarea: typeof import("./components/CategoryTextArea/Component").default;
         categorycommentcontainer: typeof import("./components/CategoryComponentContainer/Component").default;
