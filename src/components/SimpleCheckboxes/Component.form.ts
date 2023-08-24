@@ -54,7 +54,7 @@ export default function (...extend) {
                 components: EditValidation,
             },
             {
-                label: 'Conditional',
+                label: 'Conditions',
                 key: 'customConditional',
                 weight: 40,
                 components: SimpleConditional,

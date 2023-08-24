@@ -40,7 +40,7 @@ export default [
         placeholder: 'Custom Error Message',
         type: 'textfield',
         tooltip:
-            'Customize the error message displayed when the content entered does not match the requirements for this filed such as Input Mask, Minimum and Maximum Characters or Words Count. <br> For example: The minimum number of characters for a field has been set to 10. User enters 7 characters. The Custom Error Message could be “Please enter a minimum of 10 characters.” ',
+            'Customize the error message displayed when the content entered does not match the requirements for this field such as Input Mask, Minimum and Maximum Characters or Words Count. <br> For example: The minimum number of characters for a field has been set to 10. User enters 7 characters. The Custom Error Message could be “Please enter a minimum of 10 characters.” ',
         input: true,
     },
 ];
