@@ -20,7 +20,7 @@ export default [
         label: 'Description',
         placeholder: 'Description for this field.',
         tooltip:
-            'The description is text that will appear below the input field. You can use this text to add details.<br> You can preview the tooltip on the right in the “Preview” section. ',
+            'The description is text that will appear below the input field. You can use this text to add details. For example: “Please select the option that applies most.” ',
         editor: 'ace',
         as: 'html',
         wysiwyg: {

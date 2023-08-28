@@ -69,7 +69,7 @@ export default [
         key: 'defaultValue',
         weight: 5,
         placeholder: 'Default Value',
-        tooltip: 'Select which option will be selected by default.',
+        tooltip: 'This will be the value for this field, before user interaction.',
         input: true,
     },
 ];
