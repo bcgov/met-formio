@@ -1,4 +1,13 @@
-declare const _default: {
+declare const _default: ({
+    type: string;
+    title: any;
+    theme: string;
+    collapsible: boolean;
+    collapsed: boolean;
+    key: string;
+    weight: any;
+    components: any[];
+} | {
     type: string;
     title: string;
     key: string;
@@ -36,5 +45,5 @@ declare const _default: {
         data?: undefined;
         valueProperty?: undefined;
     })[];
-}[];
+})[];
 export default _default;
