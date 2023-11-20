@@ -3,6 +3,7 @@ declare const Component_base: any;
 export default class Component extends Component_base {
     static schema(...extend: any[]): any;
     static editForm: typeof editForm;
+    render(): string;
     static get builderInfo(): {
         title: string;
         group: string;
