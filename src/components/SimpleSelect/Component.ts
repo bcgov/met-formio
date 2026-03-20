@@ -1,13 +1,12 @@
-/* tslint:disable */
-import { Components } from "formiojs";
+import { Components } from '@formio/js';
 const ParentComponent = (Components as any).components.select;
-import editForm from "./Component.form";
+import editForm from './Component.form';
 
-import { Constants } from "../Common/Constants";
+import { Constants } from '../Common/Constants';
 
-const ID = "simpleselect";
-const DISPLAY = "Drop-down";
-const DEFAULT_DESCRIPTION = "Choose one of the answers above.";
+const ID = 'simpleselect';
+const DISPLAY = 'Drop-down';
+const DEFAULT_DESCRIPTION = 'Choose one of the answers above.';
 
 export default class Component extends (ParentComponent as any) {
   static schema(...extend) {
@@ -17,34 +16,34 @@ export default class Component extends (ParentComponent as any) {
         label: DISPLAY,
         key: ID,
         description: DEFAULT_DESCRIPTION,
-        dataSrc: "values",
-        dataType: "auto",
-        widget: "choicesjs",
-        idPath: "id",
+        dataSrc: 'values',
+        dataType: 'auto',
+        widget: 'choicesjs',
+        idPath: 'id',
         data: {
           values: [],
-          json: "",
-          url: "",
-          resource: "",
-          custom: "",
+          json: '',
+          url: '',
+          resource: '',
+          custom: '',
         },
         clearOnRefresh: false,
         limit: 100,
-        valueProperty: "",
+        valueProperty: '',
         lazyLoad: true,
-        filter: "",
+        filter: '',
         searchEnabled: true,
-        searchField: "",
+        searchField: '',
         minSearch: 0,
         readOnlyValue: false,
         authenticate: false,
-        template: "<span>{{ item.label }}</span>",
-        selectFields: "",
+        template: '<span>{{ item.label }}</span>',
+        selectFields: '',
         searchThreshold: 0.3,
         uniqueOptions: false,
         tableView: true,
         fuseOptions: {
-          include: "score",
+          include: 'score',
           threshold: 0.3,
         },
         customOptions: {},
@@ -58,8 +57,8 @@ export default class Component extends (ParentComponent as any) {
   static get builderInfo() {
     return {
       title: DISPLAY,
-      group: "simple",
-      icon: "tasks",
+      group: 'simple',
+      icon: 'tasks',
       weight: 33,
       documentation: Constants.DEFAULT_HELP_LINK,
       schema: Component.schema(),

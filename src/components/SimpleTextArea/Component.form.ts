@@ -1,10 +1,12 @@
-import baseEditForm from 'formiojs/components/_classes/component/Component.form';
+import { Components } from '@formio/js';
 import EditDisplay from './editForm/Component.edit.display';
 import EditValidation from './editForm/Component.edit.validation';
 import SimpleConditional from '../Common/Simple.edit.conditional';
 
+const BaseComponent = (Components as any).components.component;
+
 export default function (...extend) {
-    return baseEditForm(
+    return BaseComponent.editForm(
         [
             {
                 key: 'data',

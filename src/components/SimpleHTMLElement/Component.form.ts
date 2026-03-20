@@ -1,8 +1,11 @@
-import baseEditForm from 'formiojs/components/html/HTML.form';
+import { Components } from '@formio/js';
 import SimpleConditional from '../Common/Simple.edit.conditional';
 import EditDisplay from './editForm/Component.edit.display';
+
+const BaseHTMLElementComponent = (Components as any).components.htmlelement;
+
 export default function (...extend) {
-    return baseEditForm(
+    return BaseHTMLElementComponent.editForm(
         [
             EditDisplay,
             {

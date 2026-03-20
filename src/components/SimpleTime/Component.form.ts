@@ -1,14 +1,14 @@
-import baseEditForm from 'formiojs/components/_classes/component/Component.form';
-
+import { Components } from '@formio/js';
 import EditData from './editForm/Component.edit.data';
 import EditDisplay from './editForm/Component.edit.display';
-
 import SimpleApi from '../Common/Simple.edit.api';
 import SimpleConditional from '../Common/Simple.edit.conditional';
 import SimpleValidation from '../Common/Simple.edit.validation';
 
+const BaseComponent = (Components as any).components.component;
+
 export default function (...extend) {
-    return baseEditForm(
+    return BaseComponent.editForm(
         [
             EditDisplay,
             {

@@ -1,5 +1,4 @@
-/* tslint:disable */
-import { Components } from 'formiojs';
+import { Components } from '@formio/js';
 const ParentComponent = (Components as any).components.content;
 import editForm from './Component.form';
 

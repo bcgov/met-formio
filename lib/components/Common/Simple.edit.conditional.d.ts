@@ -23,6 +23,7 @@ declare const _default: ({
                 label: string;
                 value: string;
             }[];
+            custom?: undefined;
         };
         valueProperty?: undefined;
     } | {
@@ -33,7 +34,7 @@ declare const _default: ({
         dataSrc: string;
         valueProperty: string;
         data: {
-            custom(context: any): any;
+            custom(context: any): any[];
             values?: undefined;
         };
     } | {

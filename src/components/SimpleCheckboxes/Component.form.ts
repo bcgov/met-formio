@@ -1,11 +1,13 @@
-import radioEditForm from 'formiojs/components/radio/Radio.form';
+import { Components } from '@formio/js';
 import EditData from './editForm/Component.edit.data';
 import EditDisplay from './editForm/Component.edit.display';
 import EditValidation from './editForm/Component.edit.validation';
 import SimpleConditional from '../Common/Simple.edit.conditional';
 
+const BaseRadioComponent = (Components as any).components.radio;
+
 export default function (...extend) {
-    return radioEditForm(
+    return BaseRadioComponent.editForm(
         [
             {
                 key: 'data',

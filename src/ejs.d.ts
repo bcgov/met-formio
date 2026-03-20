@@ -3,4 +3,4 @@ declare module '*.ejs' {
   export default value
 }
 
-declare var Formio: any;
+declare let Formio: any;

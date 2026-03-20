@@ -1,13 +1,12 @@
-/* tslint:disable */
-import { Components, Formio } from "formiojs";
+import { Components, Formio } from '@formio/js';
 const ParentComponent = (Components as any).components.selectboxes;
 const FieldComponent = (Components as any).components.field;
-import editForm from "./Component.form";
+import editForm from './Component.form';
 
-import { Constants } from "../Common/Constants";
+import { Constants } from '../Common/Constants';
 
-export const CATEGORY_CHECKBOXES = "categorycheckboxes";
-const DISPLAY = "Category Checkbox";
+export const CATEGORY_CHECKBOXES = 'categorycheckboxes';
+const DISPLAY = 'Category Checkbox';
 
 export default class Component extends (ParentComponent as any) {
   static schema(...extend) {
@@ -17,7 +16,7 @@ export default class Component extends (ParentComponent as any) {
         label: DISPLAY,
         key: CATEGORY_CHECKBOXES,
         inline: false,
-        values: [{ label: "Category Components", value: "CCs" }],
+        values: [{ label: 'Category Components', value: 'CCs' }],
         fieldSet: false,
       },
       ...extend
@@ -29,8 +28,8 @@ export default class Component extends (ParentComponent as any) {
   static get builderInfo() {
     return {
       title: DISPLAY,
-      group: "simple",
-      icon: "check-square-o",
+      group: 'simple',
+      icon: 'check-square-o',
       weight: 80,
       documentation: Constants.DEFAULT_HELP_LINK,
       schema: Component.schema(),
@@ -48,17 +47,17 @@ export default class Component extends (ParentComponent as any) {
     }
     try {
       this.loading = true;
-      const url = `${sessionStorage.getItem("apiurl")}`;
+      const url = `${sessionStorage.getItem('apiurl')}`;
       const resp = await Formio.request(
         `${url}/valuecomponents/`,
-        "GET",
+        'GET',
         null,
         null,
         {
           headers: {
-            "content-type": "application/json",
+            'content-type': 'application/json',
           },
-          mode: "cors",
+          mode: 'cors',
         }
       );
       this.loadCCs(resp);
@@ -88,7 +87,7 @@ export default class Component extends (ParentComponent as any) {
     if (err.networkError) {
       this.networkError = true;
     }
-    this.emit("componentError", {
+    this.emit('componentError', {
       component: this.component,
       message: err.toString(),
     });
@@ -104,7 +103,7 @@ export default class Component extends (ParentComponent as any) {
     // we want to skip that and use the render function of radio's parent which is Field
     // so categorycomponent template won't be overridden by radio template
     return this.grandparentRender(
-      this.renderTemplate("categorycomponent", {
+      this.renderTemplate('categorycomponent', {
         input: this.inputInfo,
         inline: this.component.inline,
         values: this.component.values,

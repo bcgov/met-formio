@@ -1,8 +1,10 @@
-import baseEditForm from 'formiojs/components/_classes/component/Component.form';
+import { Components } from '@formio/js';
 import EditDisplay from './editForm/Component.edit.display';
 
+const BaseComponent = (Components as any).components.component;
+
 export default function (...extend) {
-    return baseEditForm(
+    return BaseComponent.editForm(
         [
             EditDisplay,
             {
