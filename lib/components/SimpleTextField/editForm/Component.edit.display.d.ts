@@ -12,6 +12,7 @@ declare const _default: ({
     editor?: undefined;
     as?: undefined;
     wysiwyg?: undefined;
+    customConditional?: undefined;
     defaultValue?: undefined;
     hidden?: undefined;
     reorder?: undefined;
@@ -28,6 +29,7 @@ declare const _default: ({
     editor?: undefined;
     as?: undefined;
     wysiwyg?: undefined;
+    customConditional?: undefined;
     defaultValue?: undefined;
     hidden?: undefined;
     reorder?: undefined;
@@ -47,6 +49,7 @@ declare const _default: ({
         isUseWorkerDisabled: boolean;
     };
     validate?: undefined;
+    customConditional?: undefined;
     defaultValue?: undefined;
     hidden?: undefined;
     reorder?: undefined;
@@ -81,6 +84,7 @@ declare const _default: ({
     editor?: undefined;
     as?: undefined;
     wysiwyg?: undefined;
+    customConditional?: undefined;
     hidden?: undefined;
     reorder?: undefined;
     components?: undefined;
@@ -98,6 +102,7 @@ declare const _default: ({
     editor?: undefined;
     as?: undefined;
     wysiwyg?: undefined;
+    customConditional?: undefined;
     reorder?: undefined;
     components?: undefined;
 } | {

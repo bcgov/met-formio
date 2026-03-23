@@ -1,5 +1,7 @@
-import BuilderUtils from 'formiojs/utils/builder';
+import { Utils } from '@formio/js/utils';
 import _ from 'lodash';
+
+const BuilderUtils = (Utils as any).BuilderUtils
 
 export default [
     {

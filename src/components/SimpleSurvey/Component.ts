@@ -1,13 +1,12 @@
-/* tslint:disable */
-import { Components } from "formiojs";
+import { Components } from '@formio/js';
 const ParentComponent = (Components as any).components.survey;
-import editForm from "./Component.form";
+import editForm from './Component.form';
 
-import { Constants } from "../Common/Constants";
+import { Constants } from '../Common/Constants';
 
-const ID = "simplesurvey";
-const DISPLAY = "Likert";
-const DEFAULT_DESCRIPTION = "Please select the option that best applies.";
+const ID = 'simplesurvey';
+const DISPLAY = 'Likert';
+const DEFAULT_DESCRIPTION = 'Please select the option that best applies.';
 
 export default class Component extends (ParentComponent as any) {
   static schema(...extend) {
@@ -27,8 +26,8 @@ export default class Component extends (ParentComponent as any) {
   static get builderInfo() {
     return {
       title: DISPLAY,
-      group: "simple",
-      icon: "list",
+      group: 'simple',
+      icon: 'list',
       weight: 36,
       documentation: Constants.DEFAULT_HELP_LINK,
       schema: Component.schema(),

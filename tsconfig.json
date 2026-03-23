@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2020",
     "preserveConstEnums": true,
     "outDir": "lib",
     "noImplicitAny": false,
+    "skipLibCheck": true,
     "sourceMap": false,
     "declaration": true,
     "rootDir": "src",

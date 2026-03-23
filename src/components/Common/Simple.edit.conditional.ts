@@ -1,4 +1,4 @@
-import { getContextComponents } from 'formiojs/utils/utils';
+import { getContextComponents } from '@formio/js/utils';
 import EditFormUtils from './utils';
 /* eslint-disable quotes, max-len */
 export default [
@@ -30,7 +30,7 @@ export default [
                 valueProperty: 'value',
                 data: {
                     custom(context) {
-                        return getContextComponents(context);
+                        return getContextComponents(context, false);
                     },
                 },
             },

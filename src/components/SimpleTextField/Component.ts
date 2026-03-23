@@ -1,5 +1,4 @@
-/* tslint:disable */
-import { Components } from 'formiojs';
+import { Components } from '@formio/js';
 const ParentComponent = (Components as any).components.textfield;
 import editForm from './Component.form';
 
@@ -7,7 +6,7 @@ import { Constants } from '../Common/Constants';
 
 const ID = 'simpletextfield';
 const DISPLAY = 'Single Line Answer';
-const DEFAULT_DESCRIPTION = "Please do not include any personally identifiable information about yourself or others in your responses.";
+const DEFAULT_DESCRIPTION = 'Please do not include any personally identifiable information about yourself or others in your responses.';
 
 export default class Component extends (ParentComponent as any) {
     static schema(...extend) {
