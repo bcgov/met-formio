@@ -11,5 +11,6 @@ export default class Component extends Component_base {
         documentation: string;
         schema: any;
     };
+    attach(element: HTMLElement): any;
 }
 export {};
