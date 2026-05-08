@@ -12,6 +12,7 @@ import simplehtmlelement from './SimpleHTMLElement/Component';
 import simpleselect from './SimpleSelect/Component';
 import simplesurvey from './SimpleSurvey/Component';
 import simplecontent from './SimpleContent/Component';
+import simpleranking from './SimpleRanking/Component';
 declare const _default: {
     simpletextfield: typeof simpletextfield;
     simpletextarea: typeof simpletextarea;
@@ -27,5 +28,6 @@ declare const _default: {
     simplehtmlelement: typeof simplehtmlelement;
     simpleselect: typeof simpleselect;
     simplesurvey: typeof simplesurvey;
+    simpleranking: typeof simpleranking;
 };
 export default _default;
