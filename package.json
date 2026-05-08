@@ -1,12 +1,12 @@
 {
     "name": "met-formio",
-    "version": "2.0.2-rc1",
+    "version": "2.0.2-rc2",
     "private": false,
     "description": "React Formio Components for the Modern Engagement Tools project.",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/bcgov/met-formio.git"
+        "url": "git+https://github.com/bcgov/met-formio.git"
     },
     "main": "lib/index.js",
     "module": "node",
