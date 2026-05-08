@@ -31,7 +31,7 @@ export default class Component extends (ParentComponent as any) {
                     { id: '3', label: 'Statement 3' },
                 ],
                 randomizeOrder: false,
-                input: false,
+                input: true,
                 noDragDrop: true,
                 builder: {
                     components: false, // disable editing sub-components in builder
