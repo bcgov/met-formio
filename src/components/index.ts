@@ -12,6 +12,7 @@ import simplehtmlelement from './SimpleHTMLElement/Component';
 import simpleselect from './SimpleSelect/Component';
 import simplesurvey from './SimpleSurvey/Component';
 import simplecontent from './SimpleContent/Component';
+import simpleranking from './SimpleRanking/Component';
 
 export default {
     simpletextfield,
@@ -28,4 +29,5 @@ export default {
     simplehtmlelement,
     simpleselect,
     simplesurvey,
+    simpleranking,
 };

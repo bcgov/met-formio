@@ -14,6 +14,7 @@ declare const _default: {
         simplehtmlelement: typeof import("./components/SimpleHTMLElement/Component").default;
         simpleselect: typeof import("./components/SimpleSelect/Component").default;
         simplesurvey: typeof import("./components/SimpleSurvey/Component").default;
+        simpleranking: typeof import("./components/SimpleRanking/Component").default;
     };
     templates: {
         bootstrap: {
