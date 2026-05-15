@@ -9,7 +9,16 @@ declare const _default: ({
     defaultValue: {
         label: string;
     }[];
-    components: {
+    components: ({
+        label: string;
+        key: string;
+        input: boolean;
+        type: string;
+        allowCalculateOverride: boolean;
+        calculateValue: string;
+        placeholder?: undefined;
+        validate?: undefined;
+    } | {
         label: string;
         key: string;
         input: boolean;
@@ -18,7 +27,9 @@ declare const _default: ({
         validate: {
             required: boolean;
         };
-    }[];
+        allowCalculateOverride?: undefined;
+        calculateValue?: undefined;
+    })[];
 } | {
     type: string;
     input: boolean;

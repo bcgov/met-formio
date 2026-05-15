@@ -51,4 +51,9 @@
   display: none !important;
 }
 
+/* SimpleRanking: hide the datagrid header row */
+.simpleranking-no-header table thead {
+  display: none;
+}
+
 /*# sourceMappingURL=met-formio-components.css.map */

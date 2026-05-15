@@ -50,3 +50,8 @@
 .builder-sidebar_search {
   display: none !important;
 }
+
+/* SimpleRanking: hide the datagrid header row */
+.simpleranking-no-header table thead {
+  display: none;
+}

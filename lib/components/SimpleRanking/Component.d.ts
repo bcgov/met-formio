@@ -20,6 +20,8 @@ export default class Component extends Component_base {
     get grandparentRender(): any;
     render(children: any): any;
     attach(element: any): any;
-    checkAllRows(): void;
+    checkValidity(data: any, dirty: any, rowData: any): boolean;
+    checkDuplicateRanks(): boolean;
+    checkPartialFill(): boolean;
 }
 export {};
