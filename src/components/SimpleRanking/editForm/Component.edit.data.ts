@@ -11,6 +11,14 @@ export default [
         defaultValue: [{ label: '' }],
         components: [
             {
+                label: 'ID',
+                key: 'id',
+                input: true,
+                type: 'hidden',
+                allowCalculateOverride: true,
+                calculateValue: 'value = value || ("stmt_" + Math.random().toString(36).substr(2, 9));',
+            },
+            {
                 label: 'Statement',
                 key: 'label',
                 input: true,
