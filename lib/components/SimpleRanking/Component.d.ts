@@ -9,6 +9,7 @@ export default class Component extends Component_base {
         icon: string;
         weight: number;
         documentation: string;
+        showPreview: boolean;
         schema: any;
     };
     get noDragDrop(): boolean;

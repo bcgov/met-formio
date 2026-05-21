@@ -54,6 +54,7 @@ export default class Component extends (ParentComponent as any) {
             icon: 'sort-numeric-asc',
             weight: 37,
             documentation: Constants.DEFAULT_HELP_LINK,
+            showPreview: true,
             schema: Component.schema(),
         };
     }
@@ -132,6 +133,19 @@ export default class Component extends (ParentComponent as any) {
             statementId: stmt.id,
             statement: stmt.label,
             rank: '',
+        }));
+
+        // Preserves user input when statements are reordered or relabelled.
+        const existingRows: Array<{ statementId?: string; rank?: any }> =
+            Array.isArray(this.dataValue) ? this.dataValue : [];
+        const existingRankById: Record<string, any> = {};
+        for (const row of existingRows) {
+            if (row.statementId) existingRankById[row.statementId] = row.rank;
+        }
+        this.dataValue = orderedStatements.map((stmt) => ({
+            statementId: stmt.id,
+            statement: stmt.label,
+            rank: existingRankById[stmt.id] ?? '',
         }));
 
         super.init();
