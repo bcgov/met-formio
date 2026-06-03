@@ -16,6 +16,9 @@ export default class Component extends (ParentComponent as any) {
         label: DISPLAY,
         key: ID,
         description: DEFAULT_DESCRIPTION,
+        errors: {
+          required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+        },
       },
       ...extend
     );

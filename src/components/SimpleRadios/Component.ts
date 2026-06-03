@@ -19,6 +19,9 @@ export default class Component extends (ParentComponent as any) {
         inline: false,
         values: [{ label: '', value: '' }],
         fieldSet: false,
+        errors: {
+          required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+        },
       },
       ...extend
     );

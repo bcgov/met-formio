@@ -37,6 +37,9 @@ export default class Component extends (ParentComponent as any) {
                 builder: {
                     components: false, // disable editing sub-components in builder
                 },
+                errors: {
+                    required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+                },
                 validate: {
                     custom: ``,
                 },

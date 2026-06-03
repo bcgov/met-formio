@@ -25,6 +25,9 @@ export default class Component extends (ParentComponent as any) {
         spellcheck: true,
         fixedSize: true,
         inputFormat: 'plain',
+          errors: {
+            required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+          },
         validate: {
           minWords: '',
           maxWords: '',

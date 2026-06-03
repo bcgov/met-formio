@@ -18,6 +18,9 @@ export default class Component extends (ParentComponent as any) {
         inline: false,
         values: [{ label: 'Category Components', value: 'CCs' }],
         fieldSet: false,
+        errors: {
+          required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+        },
       },
       ...extend
     );

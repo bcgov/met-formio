@@ -47,6 +47,9 @@ export default class Component extends (ParentComponent as any) {
           threshold: 0.3,
         },
         customOptions: {},
+        errors: {
+          required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+        },
       },
       ...extend
     );

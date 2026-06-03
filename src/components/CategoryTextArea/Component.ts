@@ -45,6 +45,9 @@ export default class Component extends (ParentComponent as any) {
           },
         ],
         defaultCategoryComponents: [],
+        errors: {
+          required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+        },
       },
       ...extend
     );
