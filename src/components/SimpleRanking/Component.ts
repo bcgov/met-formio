@@ -35,7 +35,7 @@ export default class Component extends (ParentComponent as any) {
                 input: true,
                 noDragDrop: true,
                 builder: {
-                    components: false, // disable editing sub-components in builder
+                    components: false,
                 },
                 errors: {
                     required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
@@ -63,13 +63,9 @@ export default class Component extends (ParentComponent as any) {
     }
 
     get noDragDrop() {
-    return true;
-}
+        return true;
+    }
 
-
-    /**
-     * Shuffle array using Fisher-Yates algorithm
-     */
     private shuffleArray<T>(array: T[]): T[] {
         const shuffled = [...array];
         for (let i = shuffled.length - 1; i > 0; i--) {
@@ -81,10 +77,8 @@ export default class Component extends (ParentComponent as any) {
 
     init() {
         const statements = this.component.statements || [];
-        const statementCount = statements.length;
 
-        // Use persistent IDs when present, fallback to generating for legacy data
-        const statementsWithIds = statements.map((stmt, index) => ({
+        const statementsWithIds = statements.map((stmt) => ({
             ...stmt,
             id: stmt.id || `stmt_${Math.random().toString(36).substr(2, 9)}`,
         }));
@@ -93,11 +87,8 @@ export default class Component extends (ParentComponent as any) {
             ? this.shuffleArray(statementsWithIds)
             : statementsWithIds;
 
-        const rankOptions = Array.from({ length: statementCount }, (_, i) => ({
-            label: String(i + 1),
-            value: i + 1,
-        }));
-
+        // Only hidden components — rank select is rendered manually to avoid
+        // formio's async setItems pipeline causing stale display on page navigation.
         this.component.components = [
             {
                 label: 'Statement ID',
@@ -107,29 +98,12 @@ export default class Component extends (ParentComponent as any) {
                 persistent: true,
             },
             {
-                label: 'Statement',
-                key: 'statementDisplay',
-                type: 'content',
-                input: false,
-                html: '{{row.statement}}',
-                hideLabel: true,
-                persistent: false,
-                ignore: this.builderMode,
-                builderDisabled: true
-            },
-            {
                 label: 'Rank',
                 key: 'rank',
-                type: 'select',
+                type: 'hidden',
                 input: true,
-                dataSrc: 'values',
-                data: { values: rankOptions },
-                validate: {
-                    required: this.component.validate?.required || false,
-                },
-                hideLabel: true,
-                builderDisabled: true
-            }
+                persistent: true,
+            },
         ];
 
         this.component.defaultValue = orderedStatements.map((stmt) => ({
@@ -138,7 +112,6 @@ export default class Component extends (ParentComponent as any) {
             rank: '',
         }));
 
-        // Preserves user input when statements are reordered or relabelled.
         const existingRows: Array<{ statementId?: string; rank?: any }> =
             Array.isArray(this.dataValue) ? this.dataValue : [];
         const existingRankById: Record<string, any> = {};
@@ -154,16 +127,18 @@ export default class Component extends (ParentComponent as any) {
         super.init();
     }
 
-    // Access the grandparent's render
     get grandparentRender() {
         return NestedComponent.prototype.render;
     }
 
-     render(children) {
+    get grandparentAttach() {
+        return NestedComponent.prototype.attach;
+    }
+
+    render(children) {
+        const statements = this.component.statements || [];
+
         if (this.builderMode) {
-            const statements = this.component.statements || [];
-            
-            // Show preview in builder to match other components and to prevent 'drag and drop' options
             const previewHtml = `
                 <table class="table datagrid-table table-bordered simpleranking-no-header">
                     <tbody>
@@ -181,55 +156,96 @@ export default class Component extends (ParentComponent as any) {
                     </tbody>
                 </table>
             `;
-            
-            // Use grandparent's render to get builder wrapper with edit controls
             return this.grandparentRender.call(this, previewHtml);
         }
-        return super.render(children);
+
+        const rows = Array.isArray(this.dataValue) ? this.dataValue : [];
+        const count = rows.length;
+        const isDisabled = this.disabled || this.options?.readOnly;
+
+        const tableHtml = `
+            <table class="table datagrid-table table-bordered simpleranking-no-header">
+                <tbody>
+                    ${rows.map((row, i) => `
+                        <tr>
+                            <td>${row.statement || ''}</td>
+                            <td>
+                                <select
+                                    class="form-control form-select"
+                                    data-row-index="${i}"
+                                    ${isDisabled ? 'disabled' : ''}
+                                >
+                                    <option value=""></option>
+                                    ${Array.from({ length: count }, (_, n) => {
+                                        const val = String(n + 1);
+                                        const selected = String(row.rank) === val ? ' selected="selected"' : '';
+                                        return `<option value="${val}"${selected}>${val}</option>`;
+                                    }).join('')}
+                                </select>
+                            </td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+
+        return this.grandparentRender.call(this, tableHtml);
     }
 
     attach(element) {
-        const attached = super.attach(element);
-        
-        // Add change listener to check duplicates only (real-time feedback)
+        // Use NestedComponent's attach (not DataGrid's) to set up this.element and
+        // base lifecycle without DataGrid trying to wire up formio select components.
+        const result = this.grandparentAttach.call(this, element);
+
+        const selects = this.element?.querySelectorAll('select[data-row-index]') as NodeListOf<HTMLSelectElement> | undefined;
+        selects?.forEach((select) => {
+            const rowIndex = parseInt(select.getAttribute('data-row-index') || '0', 10);
+            this.addEventListener(select, 'change', () => {
+                const rows = this.dataValue || [];
+                if (rows[rowIndex]) {
+                    rows[rowIndex].rank = select.value;
+                    this.dataValue = rows;
+                    this.triggerChange();
+                }
+                this.checkDuplicateRanks();
+            });
+        });
+
         this.on('change', () => {
             this.checkDuplicateRanks();
         });
-        
-        return attached;
+
+        return result;
     }
 
     checkValidity(data, dirty, rowData) {
         const isValid = super.checkValidity(data, dirty, rowData);
-        
+
         const hasDuplicates = this.checkDuplicateRanks();
-        
         const hasPartialFill = this.checkPartialFill();
-        
+
         if (hasDuplicates) {
             this.setCustomValidity('Each ranking can only be used once.', dirty);
             return false;
         }
-        
+
         if (hasPartialFill) {
             this.setCustomValidity('Please rank all items or leave all blank.', dirty);
             return false;
         }
-        
+
         if (!isValid) {
             return false;
         }
-        
+
         this.setCustomValidity('', dirty);
         return true;
     }
 
-    // Check for duplicate ranks, returns true if duplicates exist
     checkDuplicateRanks(): boolean {
         const rows = this.dataValue || [];
         const ranks = rows.map(row => row.rank).filter(r => r !== undefined && r !== null && r !== '');
-        
-        // Check for duplicates in data (independent of DOM)
+
         let hasDuplicates = false;
         const seenRanks = new Set();
         for (const rank of ranks) {
@@ -239,25 +255,22 @@ export default class Component extends (ParentComponent as any) {
             }
             seenRanks.add(rank);
         }
-        
-        // Update DOM styling if element exists (optional visual feedback)
-        const selects = this.element?.querySelectorAll('select');
+
+        const selects = this.element?.querySelectorAll('select[data-row-index]') as NodeListOf<HTMLSelectElement> | undefined;
         if (selects) {
             selects.forEach((select, index) => {
                 const row = rows[index];
                 if (!row) return;
-                
+
                 const currentRank = row.rank;
                 const cell = select.closest('td') || select.closest('.form-group');
-                
-                // Check if this specific rank is duplicated
+
                 let isDuplicate = false;
                 if (currentRank !== undefined && currentRank !== null && currentRank !== '') {
                     const count = ranks.filter(r => r === currentRank).length;
                     isDuplicate = count > 1;
                 }
-                
-                // Toggle error styling
+
                 if (isDuplicate) {
                     select.classList.add('is-invalid');
                     let errorDiv = cell?.querySelector('.duplicate-error');
@@ -280,14 +293,11 @@ export default class Component extends (ParentComponent as any) {
         return hasDuplicates;
     }
 
-    // Check for partial fill (some filled, not all), returns true if partial fill exists
     checkPartialFill(): boolean {
         const rows = this.dataValue || [];
         const ranks = rows.map(row => row.rank).filter(r => r !== undefined && r !== null && r !== '');
-        
         const filledCount = ranks.length;
         const totalCount = rows.length;
         return filledCount > 0 && filledCount < totalCount;
     }
-
 }
