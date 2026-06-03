@@ -19,6 +19,9 @@ export default class Component extends (ParentComponent as any) {
         inputType: 'postalcode',
         inputFormat: 'plain',
         inputMask: '***',
+        errors: {
+          required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+        },
       },
       ...extend
     );

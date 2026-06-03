@@ -18,6 +18,9 @@ export default class Component extends (ParentComponent as any) {
             inputType: 'time',
             format: 'HH:mm',
             dataFormat: defaultDataFormat,
+                errors: {
+                    required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+                },
         }, ...extend);
     }
 

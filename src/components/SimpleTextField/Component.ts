@@ -29,6 +29,9 @@ export default class Component extends (ParentComponent as any) {
                 widget: {
                     type: 'input',
                 },
+                errors: {
+                    required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+                },
                 validate: {
                     minLength: '',
                     maxLength: '',
