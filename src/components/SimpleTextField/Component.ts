@@ -6,6 +6,7 @@ import { Constants } from '../Common/Constants';
 
 const DEFAULT_MAX_LENGTH = Constants.DEFAULT_MAX_CHARACTER_LENGTH;
 const DEFAULT_MAX_LENGTH_MESSAGE = Constants.DEFAULT_MAX_CHARACTER_LENGTH_MESSAGE;
+const DEFAULT_REQUIRED_MESSAGE = Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE;
 
 const ID = 'simpletextfield';
 const DISPLAY = 'Single Line Answer';
@@ -30,11 +31,12 @@ export default class Component extends (ParentComponent as any) {
                     type: 'input',
                 },
                 errors: {
-                    required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+                    required: DEFAULT_REQUIRED_MESSAGE,
+                    maxLength: DEFAULT_MAX_LENGTH_MESSAGE,
                 },
                 validate: {
                     minLength: '',
-                    maxLength: '',
+                    maxLength: DEFAULT_MAX_LENGTH,
                     pattern: '',
                 },
             },
@@ -63,9 +65,6 @@ export default class Component extends (ParentComponent as any) {
             this.component.validate.maxLength > DEFAULT_MAX_LENGTH
         ) {
             this.component.validate.maxLength = DEFAULT_MAX_LENGTH;
-            if (!this.component.validate.customMessage) {
-                this.component.validate.customMessage = DEFAULT_MAX_LENGTH_MESSAGE;
-            }
         }
         return super.attach(element);
     }

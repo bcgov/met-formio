@@ -6,6 +6,7 @@ import { Constants } from '../Common/Constants';
 
 const DEFAULT_MAX_LENGTH = Constants.DEFAULT_MAX_CHARACTER_LENGTH;
 const DEFAULT_MAX_LENGTH_MESSAGE = Constants.DEFAULT_MAX_CHARACTER_LENGTH_MESSAGE;
+const DEFAULT_REQUIRED_MESSAGE = Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE;
 
 const ID = 'simpletextarea';
 const DISPLAY = 'Multiple Lines Answer';
@@ -26,11 +27,13 @@ export default class Component extends (ParentComponent as any) {
         fixedSize: true,
         inputFormat: 'plain',
           errors: {
-            required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
+            required: DEFAULT_REQUIRED_MESSAGE,
+            maxLength: DEFAULT_MAX_LENGTH_MESSAGE,
           },
         validate: {
           minWords: '',
           maxWords: '',
+          maxLength: DEFAULT_MAX_LENGTH,
         },
       },
       ...extend
@@ -58,9 +61,6 @@ export default class Component extends (ParentComponent as any) {
       this.component.validate.maxLength > DEFAULT_MAX_LENGTH
     ) {
       this.component.validate.maxLength = DEFAULT_MAX_LENGTH;
-      if (!this.component.validate.customMessage) {
-        this.component.validate.customMessage = DEFAULT_MAX_LENGTH_MESSAGE;
-      }
     }
     return super.attach(element);
   }
