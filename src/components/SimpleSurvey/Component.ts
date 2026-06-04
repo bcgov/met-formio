@@ -36,4 +36,24 @@ export default class Component extends (ParentComponent as any) {
       schema: Component.schema(),
     };
   }
+
+  // validateRequiredSurvey rule only matches component.type === 'survey',
+  // explicitly check all questions are answered if this is a simplesurvey component with required validation.
+  checkValidity(data, dirty, rowData) {
+    if (this.component.validate?.required) {
+      const value = this.dataValue || {};
+      const questions: Array<{ value: string }> = this.component.questions || [];
+      const allAnswered = questions.every((q) => value[q.value]);
+      if (!allAnswered) {
+        this.setCustomValidity('This field is required.', dirty);
+        return false;
+      }
+    }
+
+    const isValid = super.checkValidity(data, dirty, rowData);
+    if (isValid) {
+      this.setCustomValidity('', dirty);
+    }
+    return isValid;
+  }
 }

@@ -11,5 +11,6 @@ export default class Component extends Component_base {
         documentation: string;
         schema: any;
     };
+    checkValidity(data: any, dirty: any, rowData: any): any;
 }
 export {};

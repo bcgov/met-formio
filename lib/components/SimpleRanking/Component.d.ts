@@ -13,12 +13,10 @@ export default class Component extends Component_base {
         schema: any;
     };
     get noDragDrop(): boolean;
-    /**
-     * Shuffle array using Fisher-Yates algorithm
-     */
     private shuffleArray;
     init(): void;
     get grandparentRender(): any;
+    get grandparentAttach(): any;
     render(children: any): any;
     attach(element: any): any;
     checkValidity(data: any, dirty: any, rowData: any): boolean;
