@@ -4,9 +4,8 @@ import EditData from './editForm/Component.edit.data';
 import EditValidation from './editForm/Component.edit.validation';
 import SimpleConditional from '../Common/Simple.edit.conditional';
 
-const BaseComponent = (Components as any).components.component;
-
 export default function (...extend) {
+    const BaseComponent = (Components as any).components.component;
     return BaseComponent.editForm(
         [
             {

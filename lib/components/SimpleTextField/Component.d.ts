@@ -1,9 +1,11 @@
-import editForm from './Component.form';
-declare const Component_base: any;
-export default class Component extends Component_base {
-    static schema(...extend: any[]): any;
-    static editForm: typeof editForm;
-    static get builderInfo(): {
+export default function createSimpleTextField(): {
+    new (): {
+        [x: string]: any;
+        attach(element: HTMLElement): any;
+    };
+    [x: string]: any;
+    schema(...extend: any[]): any;
+    get builderInfo(): {
         title: string;
         group: string;
         icon: string;
@@ -11,6 +13,4 @@ export default class Component extends Component_base {
         documentation: string;
         schema: any;
     };
-    attach(element: HTMLElement): any;
-}
-export {};
+};

@@ -3,9 +3,8 @@ import EditDisplay from './editForm/Component.edit.display';
 import EditValidation from './editForm/Component.edit.validation';
 import SimpleConditional from '../Common/Simple.edit.conditional';
 
-const BaseRadioComponent = (Components as any).components.radio;
-
 export default function (...extend) {
+    const BaseRadioComponent = (Components as any).components.radio;
     return BaseRadioComponent.editForm(
         [
             EditDisplay,

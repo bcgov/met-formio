@@ -1,9 +1,20 @@
-import editForm from './Component.form';
-declare const Component_base: any;
-export default class Component extends Component_base {
-    static schema(...extend: any[]): any;
-    static editForm: typeof editForm;
-    static get builderInfo(): {
+export default function createSimpleRanking(): {
+    new (): {
+        [x: string]: any;
+        get noDragDrop(): boolean;
+        shuffleArray<T>(array: T[]): T[];
+        init(): void;
+        get grandparentRender(): any;
+        get grandparentAttach(): any;
+        render(children: any): any;
+        attach(element: any): any;
+        checkValidity(data: any, dirty: any, rowData: any): boolean;
+        checkDuplicateRanks(): boolean;
+        checkPartialFill(): boolean;
+    };
+    [x: string]: any;
+    schema(...extend: any[]): any;
+    get builderInfo(): {
         title: string;
         group: string;
         icon: string;
@@ -12,15 +23,4 @@ export default class Component extends Component_base {
         showPreview: boolean;
         schema: any;
     };
-    get noDragDrop(): boolean;
-    private shuffleArray;
-    init(): void;
-    get grandparentRender(): any;
-    get grandparentAttach(): any;
-    render(children: any): any;
-    attach(element: any): any;
-    checkValidity(data: any, dirty: any, rowData: any): boolean;
-    checkDuplicateRanks(): boolean;
-    checkPartialFill(): boolean;
-}
-export {};
+};
