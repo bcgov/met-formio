@@ -5,9 +5,8 @@ import SimpleApi from '../Common/Simple.edit.api';
 import SimpleConditional from '../Common/Simple.edit.conditional';
 import SimpleValidation from '../Common/Simple.edit.validation';
 
-const BaseComponent = (Components as any).components.component;
-
 export default function (...extend) {
+    const BaseComponent = (Components as any).components.component;
     return BaseComponent.editForm(
         [
             EditDisplay,

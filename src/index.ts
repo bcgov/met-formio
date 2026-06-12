@@ -1,7 +1,12 @@
-import components from './components';
+import getComponents from './components';
 import templates from './templates';
 
+let _components: Record<string, any> | null = null;
+
 export default {
-    components,
+    get components() {
+        if (!_components) _components = getComponents();
+        return _components;
+    },
     templates,
 };

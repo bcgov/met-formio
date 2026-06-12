@@ -2,9 +2,8 @@ import { Components } from '@formio/js';
 import SimpleConditional from '../Common/Simple.edit.conditional';
 import EditDisplay from './editForm/Component.edit.display';
 
-const BaseComponent = (Components as any).components.component;
-
 export default function (...extend) {
+    const BaseComponent = (Components as any).components.component;
     const editForm = BaseComponent.editForm(
         [
             {
