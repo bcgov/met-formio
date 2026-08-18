@@ -17,6 +17,46 @@ declare const _default: ({
         type: string;
         allowCalculateOverride?: undefined;
         calculateValue?: undefined;
+        validate?: undefined;
+        errors?: undefined;
+    } | {
+        label: string;
+        key: string;
+        input: boolean;
+        type: string;
+        allowCalculateOverride: boolean;
+        calculateValue: {
+            _camelCase: {
+                var: string;
+            }[];
+        };
+        validate: {
+            pattern: string;
+        };
+        errors: {
+            pattern: string;
+        };
+    })[];
+    placeholder?: undefined;
+} | {
+    type: string;
+    input: boolean;
+    label: string;
+    key: string;
+    tooltip: string;
+    weight: number;
+    reorder: boolean;
+    defaultValue: {
+        label: string;
+        value: string;
+    }[];
+    components: ({
+        label: string;
+        key: string;
+        input: boolean;
+        type: string;
+        allowCalculateOverride?: undefined;
+        calculateValue?: undefined;
     } | {
         label: string;
         key: string;

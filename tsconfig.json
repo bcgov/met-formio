@@ -10,19 +10,25 @@
     "rootDir": "src",
     "module": "es6",
     "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
     "lib": [
-      "es2015",
+      "es2020",
       "dom"
     ]
   },
   "include": [
     "src/*.ts",
+    "src/*.tsx",
     "src/*.ejs",
     "src/**/*.ts",
+    "src/**/*.tsx",
     "src/**/*.ejs"
   ],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts"
+    "test",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
   ]
 }

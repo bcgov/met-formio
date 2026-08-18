@@ -7,6 +7,7 @@ export default [
         title: 'Simple',
         key: 'simple-conditional',
         theme: 'default',
+        weight: 100,
         components: [
             {
                 type: 'select',
@@ -29,7 +30,7 @@ export default [
                 dataSrc: 'custom',
                 valueProperty: 'value',
                 data: {
-                    custom(context) {
+                    custom(context: any) {
                         return getContextComponents(context, false).map(({ label, value }) => {
                             const keySuffix = ` (${value})`;
                             const text = label.endsWith(keySuffix)
@@ -49,6 +50,23 @@ export default [
             },
         ],
     },
+    {
+        type: 'panel',
+        title: 'Visual Builder',
+        key: 'visual-conditional',
+        theme: 'default',
+        weight: 105,
+        collapsible: true,
+        collapsed: false,
+        components: [
+            {
+                type: 'conditionbuilder',
+                key: 'conditional.json',
+                input: true,
+                label: '',
+            },
+        ],
+    },
     EditFormUtils.javaScriptValue(
         'Advanced Conditions',
         'customConditional',
@@ -59,7 +77,9 @@ export default [
             '<h5>Example</h5><pre>show = !!data.showMe;</pre>',
         '<p><a href="http://formio.github.io/formio.js/app/examples/conditions.html" target="_blank" rel="noopener noreferrer">Click here for an example</a></p>',
         '',
-        false,
+        // Drop the stock JSONLogic editor: it binds to conditional.json too, and the two
+        // would overwrite each other. The Visual Builder panel owns that property now.
+        true,
     ),
 ];
 /* eslint-enable quotes, max-len */

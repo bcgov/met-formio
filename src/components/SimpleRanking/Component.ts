@@ -42,7 +42,7 @@ export default function createSimpleRanking() {
                         required: Constants.DEFAULT_REQUIRED_VALIDATION_MESSAGE,
                     },
                     validate: {
-                        custom: ``,
+                        custom: '',
                     },
                 },
                 ...extend
@@ -134,7 +134,7 @@ export default function createSimpleRanking() {
             return NestedComponent.prototype.attach;
         }
 
-        render(children) {
+        render() {
             const statements = this.component.statements || [];
 
             if (this.builderMode) {

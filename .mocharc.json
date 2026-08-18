@@ -1,0 +1,15 @@
+{
+    "extension": [
+        "ts",
+        "tsx"
+    ],
+    "spec": [
+        "test/**/*.spec.ts",
+        "test/**/*.spec.tsx"
+    ],
+    "require": [
+        "./test/register.js"
+    ],
+    "reporter": "spec",
+    "timeout": 10000
+}
