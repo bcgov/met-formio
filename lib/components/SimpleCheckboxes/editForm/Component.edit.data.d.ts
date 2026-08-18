@@ -29,9 +29,11 @@ declare const _default: ({
         tooltip: string;
         validate: {
             required: boolean;
+            pattern?: undefined;
         };
         allowCalculateOverride?: undefined;
         calculateValue?: undefined;
+        errors?: undefined;
         dataSrc?: undefined;
         valueProperty?: undefined;
         hidden?: undefined;
@@ -53,6 +55,10 @@ declare const _default: ({
         };
         validate: {
             required: boolean;
+            pattern: string;
+        };
+        errors: {
+            pattern: string;
         };
         dataSrc?: undefined;
         valueProperty?: undefined;
@@ -78,6 +84,7 @@ declare const _default: ({
         validate?: undefined;
         allowCalculateOverride?: undefined;
         calculateValue?: undefined;
+        errors?: undefined;
     })[];
     placeholder?: undefined;
     tooltip?: undefined;

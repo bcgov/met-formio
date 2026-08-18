@@ -13,6 +13,7 @@ import createSimpleHTMLElement from './SimpleHTMLElement/Component';
 import createSimpleSelect from './SimpleSelect/Component';
 import createSimpleSurvey from './SimpleSurvey/Component';
 import createSimpleRanking from './SimpleRanking/Component';
+import createConditionBuilder from './ConditionBuilder/Component';
 
 let _cache: Record<string, any> | null = null;
 
@@ -34,6 +35,7 @@ export default function getComponents(): Record<string, any> {
             simpleselect: createSimpleSelect(),
             simplesurvey: createSimpleSurvey(),
             simpleranking: createSimpleRanking(),
+            conditionbuilder: createConditionBuilder(),
         };
     }
     return _cache;

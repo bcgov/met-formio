@@ -6,7 +6,7 @@ export default function createSimpleRanking(): {
         init(): void;
         get grandparentRender(): any;
         get grandparentAttach(): any;
-        render(children: any): any;
+        render(): any;
         attach(element: any): any;
         checkValidity(data: any, dirty: any, rowData: any): boolean;
         checkDuplicateRanks(): boolean;

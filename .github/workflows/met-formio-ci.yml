@@ -1,0 +1,92 @@
+name: MET FORMIO CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  setup-job:
+    runs-on: ubuntu-22.04
+
+    if: github.repository == 'bcgov/met-formio'
+
+    steps:
+      - uses: actions/checkout@v6
+      - run: "true"
+
+  linting:
+    needs: setup-job
+    runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        node-version: [24.x]
+
+    steps:
+      - uses: actions/checkout@v6
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: |
+          npm ci
+      - name: Lint
+        id: lint
+        run: |
+          npm run lint
+
+  testing:
+    needs: setup-job
+    runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        node-version: [24.x]
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Test with mocha
+        id: test
+        run: |
+          npm run test:coverage
+
+  build-check:
+    needs: setup-job
+    runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        node-version: [24.x]
+
+    steps:
+      - uses: actions/checkout@v6
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: |
+          npm ci
+      - name: build to check strictness
+        id: build
+        run: |
+          npm run build

@@ -12,6 +12,7 @@ declare const _default: ({
     title: string;
     key: string;
     theme: string;
+    weight: number;
     components: ({
         type: string;
         input: boolean;

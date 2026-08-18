@@ -1,3 +1,5 @@
+import { Constants } from '../../Common/Constants';
+
 export default [
     {
         type: 'datagrid',
@@ -22,6 +24,12 @@ export default [
                 type: 'textfield',
                 allowCalculateOverride: true,
                 calculateValue: { _camelCase: [{ var: 'row.label' }] },
+                validate: {
+                    pattern: Constants.NO_PERIOD_PATTERN,
+                },
+                errors: {
+                    pattern: Constants.NO_PERIOD_VALIDATION_MESSAGE,
+                },
             },
             {
                 label: 'Tooltip',
@@ -32,6 +40,7 @@ export default [
         ],
     },
     {
+        // Answer values are compared, never used as a path, so periods stay allowed.
         type: 'datagrid',
         input: true,
         label: 'Values',

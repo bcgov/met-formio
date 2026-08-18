@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // ts-node runs in-process and needs CommonJS; the build config emits ESM.
+    "module": "commonjs",
+    // Default imports of CommonJS packages need the real helper outside a bundler.
+    "esModuleInterop": true,
+    "rootDir": ".",
+    "noEmit": true,
+    "types": ["mocha", "node"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "test/**/*.ts",
+    "test/**/*.tsx"
+  ]
+}

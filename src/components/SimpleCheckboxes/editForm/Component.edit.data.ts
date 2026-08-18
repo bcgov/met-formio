@@ -1,5 +1,6 @@
 import { Utils } from '@formio/js/utils';
 import _ from 'lodash';
+import { Constants } from '../../Common/Constants';
 
 const BuilderUtils = (Utils as any).BuilderUtils;
 
@@ -47,6 +48,10 @@ export default [
                 calculateValue: { _camelCase: [{ var: 'row.label' }] },
                 validate: {
                     required: true,
+                    pattern: Constants.NO_PERIOD_PATTERN,
+                },
+                errors: {
+                    pattern: Constants.NO_PERIOD_VALIDATION_MESSAGE,
                 },
             },
             {
