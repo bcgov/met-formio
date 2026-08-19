@@ -1,6 +1,5 @@
 import { getContextComponents } from '@formio/js/utils';
 import EditFormUtils from './utils';
-/* eslint-disable quotes, max-len */
 export default [
     {
         type: 'panel',
@@ -82,4 +81,3 @@ export default [
         true,
     ),
 ];
-/* eslint-enable quotes, max-len */

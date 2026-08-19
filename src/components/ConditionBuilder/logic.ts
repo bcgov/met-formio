@@ -239,7 +239,7 @@ export function parseInitialQuery(
         return { query: EMPTY_QUERY, lossy: false };
     }
 
-    let query: RuleGroupType | null = null;
+    let query: RuleGroupType | null;
     try {
         // `fields` drops references to deleted components, which reads as lossy below.
         // Cast: typed as FullField[] but plain fields are normalised at runtime.
