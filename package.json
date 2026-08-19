@@ -9,10 +9,19 @@
         "url": "git+https://github.com/bcgov/met-formio.git"
     },
     "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./lib/index.d.ts",
+            "default": "./lib/index.js"
+        },
+        "./lib/*": "./lib/*",
+        "./dist/*": "./dist/*",
+        "./package.json": "./package.json"
+    },
     "engines": {
         "node": "^20.19.0 || ^22.13.0 || >=24"
     },
-    "module": "node",
     "scripts": {
         "test:coverage": "nyc --reporter=text mocha",
         "test": "mocha",

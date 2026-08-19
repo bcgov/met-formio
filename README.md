@@ -26,7 +26,7 @@ Register the component set with Form.io before rendering any form, and import th
 
 ```ts
 import { Formio } from '@formio/js';
-import MetFormioComponents from 'met-formio/lib/index.js';
+import MetFormioComponents from 'met-formio';
 
 Formio.use(MetFormioComponents);
 ```
@@ -75,7 +75,7 @@ Form.io checks `customConditional` first, then the Simple conditional, and only 
 
 ```bash
 npm install
-npm run build     # tsc -> lib/, gulp templates, webpack -> dist/, sass -> dist/*.css
+npm run build     # tsc -> lib/, precompile .ejs templates, sass -> dist/*.css
 npm test          # mocha + ts-node + jsdom
 npm run lint      # eslint over src/**/*.{ts,tsx}
 ```
@@ -117,10 +117,16 @@ Pass the version explicitly. `npm version prerelease` turns `3.0.0-rc1` into
 `3.0.0-rc1.0`, not `3.0.0-rc2`, because this project writes the prerelease as a single
 `rc1` identifier rather than `rc.1`.
 
+### Bundler-only
 
-### Known quirk
+This package must be consumed through a bundler; `require()` and Node's ESM loader
+cannot load it. `lib/` is ESM, but the compiled templates are imported extensionless
+(`import form from './form.ejs'`, resolving to `form.ejs.js`) and are themselves
+CommonJS, so resolution depends on a bundler appending `.js`. That is why there is no
+`"type": "module"` field - adding one would break the templates.
 
-`package.json` carries a non-standard `"module": "node"` field. Some bundlers need it worked around (Vite, for example, requires an explicit alias to the package root).
+Making the package Node-loadable means emitting explicit `./form.ejs.js` specifiers and
+generating the templates as ESM. Nothing needs it today: the only consumer is Vite.
 
 ## License
 
