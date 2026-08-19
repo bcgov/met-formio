@@ -46,7 +46,6 @@ const EditFormUtils = {
     return {
       type: 'htmlelement',
       tag: 'div',
-      /* eslint-disable prefer-template */
       content: '<p>The following variables are available in all scripts.</p>' +
       '<table class="table table-bordered table-condensed table-striped">' +
       additional +
@@ -64,7 +63,6 @@ const EditFormUtils = {
       '<tr><th>utils</th><td>An instance of the <a href="http://formio.github.io/formio.js/docs/identifiers.html#utils" target="_blank">FormioUtils</a> object.</td></tr>' +
       '<tr><th>util</th><td>An alias for "utils".</td></tr>' +
       '</table><br/>'
-      /* eslint-enable prefer-template */
     };
   },
   javaScriptValue(title, property, propertyJSON, weight, exampleHTML, exampleJSON, additionalParams = '', excludeJSONLogic) {
@@ -107,11 +105,9 @@ const EditFormUtils = {
           {
             type: 'htmlelement',
             tag: 'div',
-            /* eslint-disable prefer-template */
             content: '<p>Execute custom logic using <a href="http://jsonlogic.com/" target="_blank">JSONLogic</a>.</p>' +
               '<p>Full <a href="https://lodash.com/docs" target="_blank">Lodash</a> support is provided using an "_" before each operation, such as <code>{"_sum": {var: "data.a"}}</code></p>' +
                exampleJSON
-            /* eslint-enable prefer-template */
           },
           {
             type: 'textarea',

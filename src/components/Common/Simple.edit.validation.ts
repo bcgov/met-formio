@@ -1,4 +1,3 @@
-/* eslint-disable quotes, max-len */
 export default [
     {
         weight: 0,
@@ -44,4 +43,3 @@ export default [
         input: true,
     },
 ];
-/* eslint-enable quotes, max-len */

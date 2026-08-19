@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 export default [
     {
         weight: 1,
@@ -18,4 +17,3 @@ export default [
         input: true,
     },
 ];
-/* eslint-enable max-len */
