@@ -92,6 +92,13 @@ Two dependencies are deliberately held back, both because of the CommonJS test h
 
 TypeScript is held at 5.x because `typescript-eslint` does not yet support the 7.x compiler.
 
+Runtime dependency ranges stay as wide as they can. `@formio/js` and `lodash` are both
+shared with the host application, so a raised floor here forces a transitive upgrade on
+the consumer under a bundler's dedupe. Our lockfile pins current versions for
+development; consumers pick their own. Note that this means `lodash` 4.17.x, which
+carries the `_.template` advisory, is still permitted - hosts should raise their own
+floor to 4.18.
+
 ### Build output
 
 | Path | Contents |
