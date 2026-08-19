@@ -82,6 +82,16 @@ npm run lint      # eslint over src/**/*.{ts,tsx}
 
 `npm run test:coverage` adds an nyc report. CI runs lint, tests and the build on every pull request.
 
+Two dependencies are deliberately held back, both because of the CommonJS test harness
+(`test/register.js` runs the specs through ts-node):
+
+| Pinned | Why |
+|---|---|
+| `mocha` 10 | Mocha 11 loads specs through Node's ESM loader, so the ts-node hook never runs. Moving up needs a real TypeScript ESM loader, because Node's built-in type stripping does not handle the JSX in `*.tsx`. |
+| `chai` 4 | Chai 5+ is ESM-only. Same blocker. |
+
+TypeScript is held at 5.x because `typescript-eslint` does not yet support the 7.x compiler.
+
 ### Build output
 
 | Path | Contents |
