@@ -86,10 +86,27 @@ npm run lint      # eslint over src/**/*.{ts,tsx}
 
 | Path | Contents |
 |---|---|
-| `lib/` | Compiled ES modules and type declarations - the package entry point, and what bundler-based consumers should import. |
-| `dist/` | Self-contained UMD bundles (global `METFormioComponents`) plus the compiled stylesheet. React is bundled here, so do not load it alongside an application that provides its own React. |
+| `lib/` | Compiled ES modules and type declarations - the package entry point, and what consumers import. |
+| `dist/` | The compiled stylesheet. |
 
-Both directories are committed, so run `npm run build` and include the result in any change to `src/`.
+Neither directory is committed. `prepack` runs `clean` then `build`, so `npm publish` and `npm pack` always ship a fresh build from the current source.
+
+### Releasing
+
+Publishing happens from the command line, not from CI. Use `npm version` rather than editing the version by hand, so the release is tagged in git:
+
+```bash
+npm version 3.0.0-rc2      # bumps package.json, commits, creates tag v3.0.0-rc2
+npm publish --tag rc       # prepack rebuilds from scratch first
+git push origin main --follow-tags
+```
+
+Drop `--tag rc` for a stable release so it takes the `latest` dist-tag.
+
+Pass the version explicitly. `npm version prerelease` turns `3.0.0-rc1` into
+`3.0.0-rc1.0`, not `3.0.0-rc2`, because this project writes the prerelease as a single
+`rc1` identifier rather than `rc.1`.
+
 
 ### Known quirk
 

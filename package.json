@@ -20,6 +20,7 @@
         "webpack": "npm run webpack:dev && npm run webpack:prod && npm run webpack:use",
         "build": "tsc && gulp templates && npm run webpack && sass ./src/sass/contrib.scss ./dist/met-formio-components.css",
         "clean": "rm -rf coverage dist lib",
+        "prepack": "npm run clean && npm run build",
         "purge": "rm -rf node_modules",
         "lint": "eslint src --ext .ts,.tsx"
     },
