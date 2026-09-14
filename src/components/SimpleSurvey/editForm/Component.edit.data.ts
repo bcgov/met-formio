@@ -73,6 +73,18 @@ export default [
         ],
     },
     {
+        type: 'content',
+        key: 'likertScaleHelp',
+        input: false,
+        weight: 2,
+        html:
+            '<div class="help-text">' +
+            '<i class="fa fa-info-circle" aria-hidden="true"></i>' +
+            '<span>The Likert Component is fixed to a 5-point scale: value 1 is negative, ' +
+            'value 2 is neutral, values 3\u20135 are positive.</span>' +
+            '</div>',
+    },
+    {
         type: 'textfield',
         label: 'Default Value',
         key: 'defaultValue',
