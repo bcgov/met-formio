@@ -40,13 +40,28 @@ export default [
         ],
     },
     {
+        // Datagrid templates render the label straight into the table, leaving no slot for a
+        // notice, so the visible "Values" label lives here and the grid's own label is hidden.
+        type: 'content',
+        key: 'likertScaleHelp',
+        input: false,
+        weight: 1,
+        html:
+            '<label class="col-form-label" aria-hidden="true">Values</label>' +
+            '<div class="help-text">' +
+            '<i class="fa fa-info-circle" aria-hidden="true"></i>' +
+            '<span>The Likert Component is fixed to a 5-point scale: value 1 is negative, ' +
+            'value 2 is neutral, values 3\u20135 are positive.</span>' +
+            '</div>',
+    },
+    {
         // Answer values are compared, never used as a path, so periods stay allowed.
         type: 'datagrid',
         input: true,
         label: 'Values',
+        hideLabel: true,
         key: 'values',
-        tooltip: "The values that can be selected per question. Example: 'Satisfied', 'Very Satisfied', etc.",
-        weight: 1,
+        weight: 2,
         reorder: true,
         defaultValue: [{ label: '', value: '' }],
         components: [
@@ -71,18 +86,6 @@ export default [
                 type: 'textfield',
             },
         ],
-    },
-    {
-        type: 'content',
-        key: 'likertScaleHelp',
-        input: false,
-        weight: 2,
-        html:
-            '<div class="help-text">' +
-            '<i class="fa fa-info-circle" aria-hidden="true"></i>' +
-            '<span>The Likert Component is fixed to a 5-point scale: value 1 is negative, ' +
-            'value 2 is neutral, values 3\u20135 are positive.</span>' +
-            '</div>',
     },
     {
         type: 'textfield',

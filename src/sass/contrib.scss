@@ -104,3 +104,14 @@
     margin-top: 2px;
   }
 }
+
+/* SimpleSurvey "Values" label + notice, spaced off the Values table below */
+.formio-component-likertScaleHelp {
+  .col-form-label {
+    padding-bottom: 0;
+  }
+
+  .help-text {
+    margin: 0.5rem 0 0.75rem;
+  }
+}
