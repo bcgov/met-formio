@@ -37,4 +37,16 @@ for (const key of Object.getOwnPropertyNames(dom.window)) {
     }
 }
 
+// Inherited from EventTarget.prototype, so the own-property copy loop above misses them. Without
+// these, crossvent (dragula, used by DataGrid reordering) takes its legacy IE path and throws.
+if (!globalAny.addEventListener) {
+    globalAny.addEventListener = dom.window.addEventListener.bind(dom.window);
+    globalAny.removeEventListener = dom.window.removeEventListener.bind(dom.window);
+}
+
+// Node's own Event/CustomEvent are a different realm and the copy loop skips them, so events
+// built by libraries (e.g. choices.js) are rejected by jsdom's dispatchEvent. Force jsdom's.
+globalAny.Event = dom.window.Event;
+globalAny.CustomEvent = dom.window.CustomEvent;
+
 export { dom };

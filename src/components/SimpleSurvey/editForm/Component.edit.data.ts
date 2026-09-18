@@ -50,8 +50,8 @@ export default [
             '<label class="col-form-label" aria-hidden="true">Values</label>' +
             '<div class="help-text">' +
             '<i class="fa fa-info-circle" aria-hidden="true"></i>' +
-            '<span>The Likert Component is fixed to a 5-point scale: value 1 is negative, ' +
-            'value 2 is neutral, values 3\u20135 are positive.</span>' +
+            '<span>This scale defaults to the standard 5-point classification: 2 negative, 1 neutral, ' +
+            "2 positive. Edit each row's classification if this survey needs a different scale.</span>" +
             '</div>',
     },
     {
@@ -63,7 +63,8 @@ export default [
         key: 'values',
         weight: 2,
         reorder: true,
-        defaultValue: [{ label: '', value: '' }],
+        validate: { maxLength: Constants.LIKERT_MAX_VALUES },
+        defaultValue: Constants.LIKERT_DEFAULT_VALUES,
         components: [
             {
                 label: 'Label',
@@ -78,6 +79,23 @@ export default [
                 type: 'textfield',
                 allowCalculateOverride: true,
                 calculateValue: { _camelCase: [{ var: 'row.label' }] },
+            },
+            {
+                label: 'Classification',
+                key: 'classification',
+                input: true,
+                type: 'select',
+                widget: 'html5',
+                dataSrc: 'values',
+                data: { values: Constants.LIKERT_CLASSIFICATIONS },
+                validate: {
+                    required: true,
+                    custom:
+                        'var taken = (data.values || []).filter(function (v) { return v.classification === input; });' +
+                        ` valid = !input || taken.length <= 1 ? true : ${JSON.stringify(
+                            Constants.LIKERT_DUPLICATE_CLASSIFICATION_MESSAGE,
+                        )};`,
+                },
             },
             {
                 label: 'Tooltip',
