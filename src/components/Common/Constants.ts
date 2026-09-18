@@ -11,4 +11,25 @@ export abstract class Constants {
   static readonly NO_PERIOD_PATTERN: string = '[^.]*';
   static readonly NO_PERIOD_VALIDATION_MESSAGE: string =
     'Value cannot contain a period (.). Periods separate fields in conditional logic.';
+
+  /** Rank order, most negative first. `notSure` sits outside the scale. analytics-api and met-web rely on these keys. */
+  static readonly LIKERT_CLASSIFICATIONS: ReadonlyArray<{ value: string; label: string }> = [
+    { value: 'neg3', label: 'Negative 3' },
+    { value: 'neg2', label: 'Negative 2' },
+    { value: 'neg1', label: 'Negative 1' },
+    { value: 'neutral', label: 'Neutral' },
+    { value: 'pos1', label: 'Positive 1' },
+    { value: 'pos2', label: 'Positive 2' },
+    { value: 'pos3', label: 'Positive 3' },
+    { value: 'notSure', label: 'Not sure' },
+  ];
+  static readonly LIKERT_DUPLICATE_CLASSIFICATION_MESSAGE: string = 'Each classification can only be used once.';
+  static readonly LIKERT_MAX_VALUES: number = 8;
+  static readonly LIKERT_DEFAULT_VALUES: ReadonlyArray<{ label: string; value: string; classification: string }> = [
+    'neg2',
+    'neg1',
+    'neutral',
+    'pos1',
+    'pos2',
+  ].map((classification) => Object.freeze({ label: '', value: '', classification }));
 }

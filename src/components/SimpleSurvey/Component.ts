@@ -1,4 +1,5 @@
 import { Components } from '@formio/js';
+import _ from 'lodash';
 import editForm from './Component.form';
 
 import { Constants } from '../Common/Constants';
@@ -32,7 +33,7 @@ export default function createSimpleSurvey() {
                 icon: 'list',
                 weight: 36,
                 documentation: Constants.DEFAULT_HELP_LINK,
-                schema: Component.schema(),
+                schema: { ...Component.schema(), values: _.cloneDeep(Constants.LIKERT_DEFAULT_VALUES) },
             };
         }
 
